@@ -124,6 +124,15 @@ i.fa.fa-lock.fa-2x {
 }
 
 /* ---------------------------------------------------
+    CADASTRO DE USUARIO   
+----------------------------------------------------- */
+
+select.form-control {
+  background-color: #f8f8f8;
+  border: 1px solid #efefef;
+}
+
+/* ---------------------------------------------------
     ATENDIMENTO   
 ----------------------------------------------------- */
 
@@ -279,3 +288,4 @@ textarea.form-control {
     height: 100% !important;
   }
 }
+
