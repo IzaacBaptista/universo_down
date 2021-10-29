@@ -163,7 +163,6 @@ input.form-control {
   border: 1px solid #efefef;
 }
 
-
 .card-body {
   padding: 1rem 1rem !important;
 }
@@ -192,6 +191,15 @@ input.form-control {
 .card > hr {
     margin-right: 35px !important;
     margin-left: 35px !important;
+}
+
+/* ---------------------------------------------------
+    FORMULÁRIO TELA CADASTRO
+----------------------------------------------------- */
+
+textarea.form-control {
+  background-color: #f8f8f8;
+  border: 1px solid #efefef;
 }
 
 /* ---------------------------------------------------
