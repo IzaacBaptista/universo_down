@@ -36,7 +36,7 @@ $(document).on("click", ".side-menu > ul > li", function (e) {
     /* Remove Form Familiar */
     $(wrapper).on("click", ".delete", function(e) {
         e.preventDefault();
-        $(this).parent('form').remove();
+        $(this).parents('#form_familiar').remove();
         x--;
     })
 });
