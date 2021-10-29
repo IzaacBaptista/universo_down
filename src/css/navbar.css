@@ -408,7 +408,7 @@ div.side-menu > ul > li:last-child{
 } */
 div.side-menu > ul > li > a,
 div.side-menu > ul > li{
-    font-size: 18px;
+    font-size: 16px;
 }
 div.side-menu > ul > li:hover > a,
 div.side-menu > ul > li.active > a{
