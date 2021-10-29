@@ -1,3 +1,4 @@
+/* Abrir e Fechar NavBar */
 $(function () {
   "use strict";
 

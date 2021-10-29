@@ -122,8 +122,6 @@ aside .side-inner {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
 }
-aside .side-inner a {
-}
 
 aside .side-inner::-webkit-scrollbar {
   display: none;
@@ -161,7 +159,6 @@ aside .side-inner .logo-wrap .logo span {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
 
 aside .side-inner .logo-wrap .logo-text {
   position: absolute;
@@ -403,24 +400,24 @@ main .post-content .post-meta {
   background-color: #fff;
 }
 
-div.side-menu{
+/* div.side-menu{
 }
 div.side-menu > ul > li{
 }
 div.side-menu > ul > li:last-child{
-}
+} */
 div.side-menu > ul > li > a,
 div.side-menu > ul > li{
-    font-size: 18px;
+    font-size: 16px;
 }
 div.side-menu > ul > li:hover > a,
 div.side-menu > ul > li.active > a{
     color: #fff;
     background-color: rgb(60, 152, 165);
 }
-div.side-menu > ul > li.active i.drop-icon{
+/* div.side-menu > ul > li.active i.drop-icon{
 
-}
+} */
 
 div.side-menu > ul > li > a{
   display: block;
@@ -428,7 +425,7 @@ div.side-menu > ul > li > a{
 div.side-menu > ul > li .sub-menu{
     display: none;
 }
-div.side-menu > ul > li .sub-menu li{
+/* div.side-menu > ul > li .sub-menu li{
 }
 div.side-menu > ul > li .sub-menu li:hover{
 }
@@ -443,7 +440,7 @@ div.side-menu > ul > li i{
 
 aside .side-inner .nav-menu ul li a {
 
-}
+} */
 
 li a.d-flex.align-items-sm-center.sub {
   background-color: rgb(165, 214, 219);
