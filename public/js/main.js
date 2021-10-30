@@ -18,7 +18,7 @@ $(function () {
     e.preventDefault();
   });
 
-  /* Click fora do menu */
+  /* Click fora da NavBar */
   $(document).mouseup(function (e) {
     var container = $(".sidebar");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
