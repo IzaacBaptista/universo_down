@@ -91,7 +91,9 @@ frontend
 |   ├──
 |
 ├ index.html
-└ README.md
+├ README.md
+└ LICENSE
+```
 
 ## Nome de Arquivos
 
