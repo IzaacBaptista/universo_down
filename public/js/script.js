@@ -1,5 +1,6 @@
 /* Carregar o menu lateral */
-$.get("navbar.html", function (data) {
+const path = ""
+$.get("/html/partials/navbar.html", function (data) {
   $("#nav-placeholder").replaceWith(data);
 });
 
@@ -33,7 +34,7 @@ $(document).ready(function () {
     }
   });
 
-  /* Remove Form Familiar */
+  /* Remover Form Familiar */
   $(wrapper).on("click", ".delete", function (e) {
     e.preventDefault();
     $(this).parents("#form_familiar").remove();

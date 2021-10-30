@@ -8,16 +8,17 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Universo Down</title>
+    <title>Cadastro da Atendido</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/src/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/src/css/navbar.css" />
-    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="/public/css/navbar.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
 </head>
 
 <body>
@@ -31,12 +32,23 @@
         <!-- Conteúdo da Página  -->
         <div id="content">
             <div class="card col-9">
-                <h3 class="mt-4 ml-2"> Cadastro de Usuário</h3>
+                <h3 class="mt-4 ml-2 titulo"> Cadastro do Atendido</h3>
                 <hr>
                 <div class="card-body">
                     <form class="form-group">
                         <div class="container">
+
                             <div class="row">
+
+                                <div class="col-3">
+                                    <img src="/public/img/logo.png" width="100px" height="100px" class="img-thumbnail"
+                                        alt="...">
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                </div>
+
+
+                                <hr style="margin-top: 10px">
+
                                 <div class="col-6">
                                     <label for="nome">Nome</label>
                                     <input type="text" class="form-control" name="nome" id="nome"
@@ -74,7 +86,7 @@
                                     <input type="text" class="form-control" name="RG" id="RG"
                                         placeholder="Registro Geral">
                                 </div>
-                                <div class="col-4">
+                                <div class="col-3">
                                     <label for="genero">Gênero</label>
                                     <select name="genero" class="form-control" id="genero" placeholder="Gênero">
                                         <option value="Masculino">Masculino</option>
@@ -83,17 +95,17 @@
                                     </select>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-3">
                                     <label for="expedicao">Data de Expedição</label>
                                     <input type="date" class="form-control" name="Expedição" id="Expedicao"
                                         placeholder="Data de Expedição">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
                                     <label for="orgao emissor">Orgão Emissor</label>
                                     <input type="text" class="form-control" name="Orgão Emissor" id="orgaoEmissor"
                                         placeholder="Orgão Emissor">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
                                     <label for="estado emissor">Estado Emissor</label>
                                     <input type="text" class="form-control" name="Estado Emissor" id="estadoEmissor"
                                         placeholder="Estado Emissor">
@@ -102,9 +114,8 @@
                                 <hr style="margin-top: 10px">
 
                                 <div class="col-6">
-                                    <label for="endereco">Código Postal</label>
-                                    <input type="text" class="form-control" name="codigoPostal" id="codigoPostal"
-                                        placeholder="Código Postal">
+                                    <label for="endereco">CEP</label>
+                                    <input type="text" class="form-control" name="CEP" id="CEP" placeholder="CEP">
                                 </div>
                                 <div class="col-6">
                                     <label for="endereco">Endereço</label>
@@ -144,35 +155,66 @@
                                     <input type="text" class="form-control" name="telefone" id="telefone"
                                         placeholder="(DDD+)">
                                 </div>
+
                                 <hr style="margin-top: 10px">
-                                <div class="col-6">
-                                    <label for="genero">Função do Administrador</label>
-                                    <select name="adminFunc" class="form-control" id="adminFunc"
-                                        placeholder="funcaoAdministrador">
-                                        <option value="Masculino">Proprietário</option>
-                                        <option value="Feminino">Administrador</option>
-                                        <option value="Outros">Membro</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for="genero">Função do Usuário</label>
-                                    <select name="userFunc" class="form-control" id="userFunc"
-                                        placeholder="funcaoUsuario">
-                                        <option value="Masculino">Secretaria</option>
-                                        <option value="Feminino">Trabalhador Social</option>
-                                        <option value="Outros">Especialista</option>
-                                    </select>
+
+                                <div class="col-3">
+                                    <label for="naturalidade">Naturalidade</label>
+                                    <input type="text" class="form-control" name="naturalidade" id="naturalidade"
+                                        placeholder="Naturalidade">
                                 </div>
 
-                                <div class="col-6">
-                                    <label for="senha">Crie uma senha</label>
-                                    <input type="password" class="form-control" name="senha" id="senha"
-                                        placeholder="Senha">
+                                <div class="col-3">
+                                    <label for="nacionalidade">Nacionalidade</label>
+                                    <input type="text" class="form-control" name="nacionalidade" id="nacionalidade"
+                                        placeholder="Nacionalidade">
                                 </div>
-                                <div class="col-6">
-                                    <label for="confirmasenha">Confirme a senha</label>
-                                    <input type="password" class="form-control" name="confirmasenha" id="confirmasenha"
-                                        placeholder="Senha">
+
+                                <div class="col-3">
+                                    <label for="identidadeNacional">Identidade Nacional</label>
+                                    <input type="text" class="form-control" name="identidadeNacional"
+                                        id="identidadeNacional" placeholder="Identidade Nacional">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="numIDNacional">Numero de Identificação Nacional</label>
+                                    <input type="text" class="form-control" name="numIDNacional" id="numIDNacional"
+                                        placeholder="Numero Identificação Nacional">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="ocupacao">Ocupação</label>
+                                    <input type="text" class="form-control" name="ocupacao" id="ocupacao"
+                                        placeholder="Ocupação">
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="escolaridade">Escolaridade</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="beneficios">Beneficios</label>
+                                    <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                </div>
+
+                                <hr style="margin-top: 10px">
+
+                                <div class="col-3">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="..."
+                                            checked>
+                                        Possui Beneficio
+                                    </li>
+
+                                </div>
+
+                                <div class="col-3">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                                        Ativo
+                                    </li>
+
                                 </div>
 
                             </div>
@@ -189,8 +231,9 @@
     </div>
 
     <!-- JS -->
-    <script src="/src/js/jquery-3.6.0.min.js"></script>
-    <script src="/src/js/script.js"></script>
+    <script src="/public/js/jquery-3.6.0.min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/script.js"></script>
 </body>
 
 </html>
