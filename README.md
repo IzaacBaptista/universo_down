@@ -57,7 +57,7 @@ Example
 
 <scope> 
 
-```
+
 frontend
     
 ## Organização das pastas
