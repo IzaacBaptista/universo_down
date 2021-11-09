@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>  
+     $(document).ready(function(){
+        $.ajax({
+            url: 'http://localhost:3333/users',
+            type: 'get',
+            dataType: 'JSON',
+            success: function(response){
+                var len = response.length;
+                for(var i=0; i<len; i++){
+                    var id = response[i].id;
+                    var username = response[i].first_name;
+                    var name = response[i].last_name;
+                    var email = response[i].email;
+
+                    var tr_str = "<tr>" +
+                        "<td align='center'>" + (i+1) + "</td>" +
+                        "<td align='center'>" + username + "</td>" +
+                        "<td align='center'>" + name + "</td>" +
+                        "<td align='center'>" + email + "</td>" +
+                        "</tr>";
+
+                    $("#userTable tbody").append(tr_str);
+                }
+            }
+        });
+    });  
+
+$(document).ready(function () {  
+    $("#searchterm").click(function () {  
+      id_numbers = new Array();
+      $.ajax({
+      type: 'GET',
+      url: "http://localhost:3333/users",
+      //force to handle it as text
+      dataType: "text",
+      success: function(data) {
+          id_numbers = data
+          var json = $.parseJSON(data);
+          //let's display a few items
+          console.log(id_numbers)
+          for (var i=0;i<json.length;++i)
+          {
+              $('#results').append('<div class="name">'+json[i].first_name + " " +json[i].last_name+'</>');
+          }
+      }
+  });
+})
+})   
+   </script>  
+  </head>
+  <body>
+    <div class="Minimizado top-menu-invisible hidden-mobile hidden-md hidden-sm">
+    
+    <input id="searchterm" name="searchterm" />
+    <div id="results">
+    </div>
+    <hr>
+  
+
+    <div class="container">
+   <table id="userTable" border="1" >
+      <thead>
+        <tr>
+          <th width="5%">S.no</th>
+          <th width="20%">Username</th>
+          <th width="20%">Name</th>
+          <th width="30%">Email</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+   </table>
+</div>
+
+  </body>
+      
+</html>
