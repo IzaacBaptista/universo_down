@@ -10,21 +10,21 @@
     <script>  
      $(document).ready(function(){
         $.ajax({
-            url: 'http://localhost:3333/users',
+            url: 'http://localhost:3333/organizations',
             type: 'get',
             dataType: 'JSON',
             success: function(response){
                 var len = response.length;
                 for(var i=0; i<len; i++){
                     var id = response[i].id;
-                    var username = response[i].first_name;
-                    var name = response[i].last_name;
-                    var email = response[i].email;
+                    var first_name = response[i].name;
+                    var last_name = response[i].description;
+                    var email = response[i].domain;
 
                     var tr_str = "<tr>" +
                         "<td align='center'>" + (i+1) + "</td>" +
-                        "<td align='center'>" + username + "</td>" +
-                        "<td align='center'>" + name + "</td>" +
+                        "<td align='center'>" + first_name + "</td>" +
+                        "<td align='center'>" + last_name + "</td>" +
                         "<td align='center'>" + email + "</td>" +
                         "</tr>";
 

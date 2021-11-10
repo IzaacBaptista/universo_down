@@ -20,7 +20,7 @@ function autocomplete(inp, arr) {
     for (i = 0; i < arr.length; i++) {
       /*Verifica-se se começa com a letra digitada:*/
       if (
-        arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()
+        arrayName().first_name[i].substr(0, val.length).toUpperCase() == val.toUpperCase()
       ) {
         /*Cria uma DIV para cada resultado:*/
         b = document.createElement("DIV");
