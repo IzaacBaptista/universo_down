@@ -18,3 +18,5 @@ bin-release/
 # information for Eclipse / Flash Builder.
 .vscode
 
+/node_modules
+/jquery-jwt-auth

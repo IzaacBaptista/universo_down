@@ -1,35 +1,45 @@
-## Tecnologias
+# universo-down
+Projeto Universo Down - SENAC/SC
 
--  Express — A web framework for Node.js
--  Sequelize — SQL dialect ORM for Node.js
+## Pré-requisitos
+- **NodeJS** (14.18.0)
+- **npm**
+- **Xampp** (to test local)
 
-#  Pré-requisitos
+# Inicilizando o ambiente
+```bash
+npm install
+npm run build
+npm start
+```
 
-- [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/pt-BR/docs/install)
+# Scripts - configurados no arquivo package.json
+- `build`: Compila o código TypeScript do `src/` para o diretório `build/`
+- `start`: Inicializa o servidor
 
-## Instalação e execução
+# Exemplo execução com CURL
 
-1. Faça um clone desse repositório;
-2. Entre na pasta `cd backend`;
-3. Rode `yarn` ou `npm` para instalar as dependências;
-4. Altere as credencias dentro de `/src/config/database.js`;
-5. Rode `yarn sequelize db:create` para criar o banco de dados;
-6. Rode `yarn sequelize db:migrate` para executar as migrations;
-7. Rode `yarn dev` para iniciar o servidor.
-8. Importe o arquivo `Insomnia_universo_down.json` desse repositório no Insomnia;
+* Buscar todos os Usuários:
+`curl --request GET http://localhost:3000/user -H "x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMzMzIyNzExLCJleHAiOjE2MzM0MDkxMTF9.5D9K0LJM6Kv4u03tvrEPyvIg1RdQR8UVTQyXtwN8054"`
 
-## Como contribuir
+* Buscar Usuário pelo ID
+`curl --request GET http://localhost:3000/user/1`
 
-- Faça um fork desse repositório;
-- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
-- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
-- Faça push para a sua branch: `git push origin minha-feature`.
+* Inserir novo Usuário
+`curl --request POST http://localhost:3000/user -H "Content-Type: application/json" --data "{ \"firstName\": \"Jackson\", \"lastName\": \"Machado\", \"email\": \"jackson@machado\", \"plainPassword\": \"123456\" }"`
 
-Depois que o merge da sua pull request for feito, você pode deletar a sua branch.
+* Alterar Usuário
+`curl --request PUT http://localhost:3000/user/1 -H "Content-Type: application/json" -H "x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzMzMjIzOTAsImV4cCI6MTYzMzQwODc5MH0.5e6i-UKDNo9uU6twBji1Gl33_yuSqedlRPL47IW3zN8" --data "{ \"firstName\": \"Jackson\", \"lastName\": \"Machado\", \"email\": \"jackson@machado.com\", \"id\": 1 }"`
 
-##  Licença
+* Remover Usuário
+`curl --request DELETE http://localhost:3000/user/1`
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
----
+* Login
+`curl --request POST http://localhost:3000/login -H "Content-Type: application/json" --data "{ \"email\": \"admin@domain.com\", \"password\": \"123456\" }"`
+
+* Logout
+`curl --request POST http://localhost:3000/logout -H "x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjMzMzIyNzExLCJleHAiOjE2MzM0MDkxMTF9.5D9K0LJM6Kv4u03tvrEPyvIg1RdQR8UVTQyXtwN8054"`
+
+* Criar Nova Organiação
+`curl --request POST http://localhost:3000/organization -H "Content-Type: application/json" --data "{ \"name\": \"Organização\", \"description\": \"Teste\", \"domain\": \"domain.com\" }"`
