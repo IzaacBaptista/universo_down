@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import * as express from 'express'
 import * as swaggerUi from 'swagger-ui-express'
 import * as cors from 'cors'
@@ -8,19 +7,13 @@ import { Route } from './api/route'
 import config from './config'
 import dbConnection from './database'
 import logger from './fns/logger'
+
 // Create and setup express app
 logger.info(`Process id: ${process.pid}`)
 const api = JSON.stringify(apiDoc)
-
-const allowedOrigins = ['http://127.0.0.1:5501']
-
-const options: cors.CorsOptions = {
-    origin: allowedOrigins
-}
-
 const app = express()
-app.use(cors(options))
 app.use(express.json())
+app.use(cors())
 // Register routes
 Route.getRoutes(app)
 
