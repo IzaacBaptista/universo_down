@@ -97,7 +97,7 @@ function arrayOfNAmes() {
       success: function (data) {
           var myJSON = data;
           $.each(myJSON, function(index, value) {
-            console.log(value.firstName + ' ' + value.lastName);
+            // console.log(value.firstName + ' ' + value.lastName);
             arrayNames.push(value.firstName + ' ' + value.lastName);
           });
         } 
