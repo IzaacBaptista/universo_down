@@ -50,8 +50,8 @@ const defaultConfig: Config = {
         type: 'mysql',
         url: 'localhost',
         port: 3306,
-        username: 'roto',
-        password: '123',
+        username: 'root',
+        password: '',
         name: 'universodown',
         pollSize: 20,
         connectionTimeoutMillis: 30000

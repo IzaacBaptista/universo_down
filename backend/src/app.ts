@@ -1,6 +1,6 @@
 import * as express from 'express'
-import * as swaggerUi from 'swagger-ui-express'
 import * as cors from 'cors'
+import * as swaggerUi from 'swagger-ui-express'
 
 import { apiDoc } from './api/docs/doc'
 import { Route } from './api/route'
@@ -11,6 +11,7 @@ import logger from './fns/logger'
 // Create and setup express app
 logger.info(`Process id: ${process.pid}`)
 const api = JSON.stringify(apiDoc)
+
 const app = express()
 app.use(express.json())
 app.use(cors())
@@ -23,6 +24,7 @@ app.use(
     swaggerUi.serve,
     swaggerUi.setup(swaggerJson)
 )
+
 async function run() {
     await dbConnection
 
