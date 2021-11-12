@@ -39,6 +39,7 @@
               <div class="col offset-4 mb-5">
                 <img src="/public/img/logo_open.png" />
               </div>
+              <form>
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
@@ -48,7 +49,7 @@
                     type="text"
                     class="form-control"
                     name="usuario"
-                    id="user"
+                    id="email"
                     placeholder="Email"
                   />
                 </div>
@@ -60,8 +61,8 @@
                     type="password"
                     class="form-control"
                     name="usuario"
-                    id="pass"
-                    placeholder="Senha"
+                    id="password"
+                    placeholder="Senha" autocomplete="off"
                   />
                 </div>
               </div>
@@ -83,32 +84,9 @@
         </div>
       </div>
     </div>
-
+</form>
     <!-- JS -->
     <script>
-          //Monitorar a função de clique no botão de login no arquivo login.html
-      $("#botao-login").click(function(e){
-            e.preventDefault();
-            //Recupera os dados digitados pelo usuário
-            var username = $("#login").val();
-            var password = $("#senha").val();
-            //Converte no JSON esperado pela API (nesse caso, do SUAP, a API pede username e password)
-            var dadosjson = JSON.stringify({"username": username, "password":password});
-            //Efetiva a requisição AJAX
-            $.ajax({
-            url: "http://localhost:3333/login", /*Endereço do serviço de autenticação*/
-            dataType: 'json', /*Tipo dos dados enviados na requisição*/
-            data: dadosjson, /*Dados enviados na solicitação*/
-            type: 'POST', /*Método da requisição*/
-            contentType: 'application/json', /*Tipo de dado da resposta*/
-            success: function (data) {/*Função que será executada caso a API tenha retornado uma resposta da classe 200*/
-            alert(data.token); {/*Como esperamos um dado do tipo JSON, informado no campo contentType,acessamos um desses campos*/
-            },
-            error: function(data){/*Função que será executada caso a resposta não seja da classe 200*/
-            alert("Impossível recuperar dados");
-            }
-            });
-      });
     </script>
   </body>
 </html>

@@ -20,7 +20,7 @@ function autocomplete(inp, arr) {
     for (i = 0; i < arr.length; i++) {
       /*Verifica-se se começa com a letra digitada:*/
       if (
-        arrayName().first_name[i].substr(0, val.length).toUpperCase() == val.toUpperCase()
+        arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()
       ) {
         /*Cria uma DIV para cada resultado:*/
         b = document.createElement("DIV");
@@ -84,27 +84,25 @@ function autocomplete(inp, arr) {
     closeAllLists(e.target);
   });
 }
+function arrayOfNAmes() {
+  var arrayNames = [];
 
-function arrayName() {
-  var data = [];
-
-  $.ajax({
-    url: "http://localhost:3333/users",
-    type: "GET",
-    dataType: "JSON",
-    success: function (response) {
-      var len = response.length;
-      for (var i = 0; i < len; i++) {
-        var id = response[i].id;
-        var first_name = response[i].first_name;
-        var last_name = response[i].last_name;
-        var email = response[i].email;
-
-        data.push(first_name + " " + last_name);
+    $.ajax({
+      url: "http://localhost:3000/api/v1/user/",
+      type: "GET",
+      dataType: "JSON",
+      headers: {
+        'x-access-token': localStorage.getItem("Authorization")
+      },
+      success: function (data) {
+          var myJSON = data;
+          $.each(myJSON, function(index, value) {
+            console.log(value.firstName + ' ' + value.lastName);
+            arrayNames.push(value.firstName + ' ' + value.lastName);
+          });
+        } 
       }
-    },
-  });
-  return data;
-}
-console.log("FUNCAO" + arrayName());
-autocomplete(document.getElementById("searchBar"), arrayName());
+    )
+    return arrayNames;
+  }
+autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
