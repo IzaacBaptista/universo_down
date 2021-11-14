@@ -153,12 +153,12 @@ div.card-body, div {
   margin-bottom: 10px;
 }
 
-#adminFunc {
+#admin_role {
   height: 85%;
   width: 100%;
 }
 
-#userFunc {
+#user_role {
   height: 85%;
   width: 100%;
 }
