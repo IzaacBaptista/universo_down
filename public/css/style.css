@@ -143,10 +143,14 @@ select.form-control {
   border: 1px solid #EFEFEF;
   height: 65%;
 }
-select , .dropdown-toggle {
+select, .dropdown-toggle {
   background-color: rgb(226, 226, 226);
   border: 1px solid #EFEFEF;
   height: 65%;
+}
+
+div.card-body, div {
+  margin-bottom: 10px;
 }
 
 #adminFunc {
