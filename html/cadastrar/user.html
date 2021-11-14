@@ -10,6 +10,7 @@
     <title>Universo Down</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
@@ -28,13 +29,13 @@
 
       <!-- Conteúdo da Página  -->
       <div id="content">
-        <div class="card col-12 ">
+        <div class="card col-12">
           <h3 class="mt-4 ml-2" style="text-align: center">
             Cadastro de Usuário
           </h3>
-          <div class="card-body ">
+          <div class="card-body">
             <hr size="4" class="mb-4" />
-            <form class="form-group " id="form">
+            <form class="form-group" id="form">
               <div class="container">
                 <div class="row">
                   <div class="col-6">
@@ -42,10 +43,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="nome"
-                      id="nome"
+                      name="firstName"
+                      id="firstName"
                       placeholder="Primeiro Nome"
-                      required
                     />
                   </div>
                   <div class="col-6">
@@ -53,10 +53,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="sobrenome"
-                      id="sobrenome"
+                      name="lastName"
+                      id="lastName"
                       placeholder="Sobrenome"
-                      required
                     />
                   </div>
                   <div class="col-4">
@@ -64,10 +63,9 @@
                     <input
                       type="date"
                       class="form-control"
-                      name="dataDeNascimento"
-                      id="dataDeNascimento"
+                      name="birthday"
+                      id="birthday"
                       placeholder="CPF"
-                      required
                     />
                   </div>
                   <div class="col-4">
@@ -78,30 +76,27 @@
                       name="email"
                       id="email"
                       placeholder="E-mail"
-                      required
                     />
                   </div>
                   <div class="col-4">
-                    <label for="cpf">CPF</label>
+                    <label for="identification">CPF</label>
                     <input
                       type="text"
                       class="form-control"
-                      name="CPF"
-                      id="CPF"
+                      name="identification"
+                      id="identification"
                       placeholder="CPF"
                       maxlength="14"
-                      required
                     />
                   </div>
                   <div class="col-4">
-                    <label for="RG">RG</label>
+                    <label for="generalRegistration">RG</label>
                     <input
-                      type="number"
+                      type="text"
                       class="form-control"
-                      name="RG"
-                      id="RG"
+                      name="generalRegistration"
+                      id="generalRegistration"
                       placeholder="Registro Geral"
-                      required
                     />
                   </div>
                   <div class="col-4">
@@ -109,20 +104,18 @@
                     <input
                       type="date"
                       class="form-control"
-                      name="Expedição"
-                      id="Expedicao"
+                      name="issue"
+                      id="issue"
                       placeholder="Data de Expedição"
-                      required
                     />
                   </div>
                   <div class="col-4">
                     <label for="genero">Gênero</label>
                     <select
-                      name="genero"
+                      name="gender"
                       class="dropdown-toggle"
-                      id="genero"
+                      id="gender"
                       placeholder="Gênero"
-                      required
                     >
                       <option value="0">Escolha um Gênero</option>
                       <option value="Masculino">Masculino</option>
@@ -131,28 +124,15 @@
                     </select>
                   </div>
                   <div class="col-6">
-                    <label for="orgao emissor">Orgão Emissor</label>
+                    <label for="orgao emissor">Orgão Emissor/Estado</label>
                     <input
                       type="text"
                       class="form-control"
-                      name="Orgão Emissor"
-                      id="orgaoEmissor"
-                      placeholder="Orgão Emissor"
-                      required
+                      name="issuer"
+                      id="issuer"
+                      placeholder="Orgão Emissor/Estado"
                     />
                   </div>
-                  <div class="col-6">
-                    <label for="estado emissor">Estado Emissor</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="Estado Emissor"
-                      id="estadoEmissor"
-                      placeholder="Estado Emissor"
-                      required
-                    />
-                  </div>
-
                   <hr size="4" class="mt-4" />
 
                   <div class="col-6">
@@ -160,10 +140,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="endereco"
-                      id="endereco"
+                      name="address"
+                      id="address"
                       placeholder="Endereço"
-                      required
                     />
                   </div>
                   <div class="col-3">
@@ -171,10 +150,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="numero"
-                      id="numero"
+                      name="number"
+                      id="number"
                       placeholder="Número Residêncial"
-                      required
                     />
                   </div>
                   <div class="col-3">
@@ -182,10 +160,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="bairro"
-                      id="bairro"
+                      name="neighborhood"
+                      id="neighborhood"
                       placeholder="Bairro"
-                      required
                     />
                   </div>
                   <div class="col-3">
@@ -193,21 +170,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="cep"
-                      id="CEP"
+                      name="zipCode"
+                      id="zipCode"
                       placeholder="CEP"
-                      required
-                    />
-                  </div>
-                  <div class="col-3">
-                    <label for="complemento">Complemento</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="complemento"
-                      id="complemento"
-                      placeholder="Apto/Lote"
-                      required
                     />
                   </div>
                   <div class="col-3">
@@ -215,20 +180,25 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="cidade"
-                      id="cidade"
+                      name="city"
+                      id="city"
                       placeholder="Cidade"
-                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="confirmasenha">Identidade Nacional</label>
+                    <input
+                      autocomplete="off"
+                      type="text"
+                      class="form-control"
+                      name="nationalIdentity"
+                      id="nationalIdentity"
+                      placeholder="Identidade Nacional??"
                     />
                   </div>
                   <div class="col-3">
                     <label for="estado">Estado</label>
-                    <select
-                      id="estado"
-                      name="estado"
-                      class="dropdown-toggle"
-                      required
-                    >
+                    <select id="state" name="state" class="dropdown-toggle">
                       <option value="AC">Acre</option>
                       <option value="AL">Alagoas</option>
                       <option value="AP">Amapá</option>
@@ -264,65 +234,50 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="telefone"
-                      id="TELEFONE"
+                      name="phone"
+                      id="phone"
                       placeholder="(DDD+)"
-                      required
                     />
                   </div>
                   <hr size="4" class="mt-4" />
                   <div class="col-6">
-                    <label for="genero">Função do Administrador</label>
+                    <label for="admin_role">Função do Administrador</label>
                     <select
-                      name="adminFunc"
                       class="dropdown-toggle"
-                      id="adminFunc"
+                      name="adminRole"
+                      id="adminRole"
                       placeholder="funcaoAdministrador"
-                      required
                     >
-                      <option value="Masculino">Proprietário(a)</option>
-                      <option value="Feminino">Administrador(a)</option>
-                      <option value="Outros">Membro</option>
+                      <option value="admin">Administrador(a)</option>
+                      <option value="member">Membro</option>
+                      <option value="owner">Propriétario</option>
                     </select>
                   </div>
                   <div class="col-6">
                     <label for="genero">Função do Usuário</label>
                     <select
-                      name="userFunc"
                       class="dropdown-toggle"
-                      id="userFunc"
+                      name="userRole"
+                      id="userRole"
                       placeholder="funcaoUsuario"
-                      required
                     >
-                      <option value="Masculino">Secretaria(o)</option>
-                      <option value="Feminino">Trabalhador(a) Social</option>
-                      <option value="Outros">Especialista</option>
+                      <option value="secretary">Secretaria(o)</option>
+                      <option value="professional">Especialista</option>
+                      <option value="social-assistence">Trabalhador(a) Social</option>
                     </select>
                   </div>
 
                   <div class="col-6 mt-3">
                     <label for="senha">Crie uma senha</label>
-                    <input
-                      autocomplete="off"
-                      type="password"
-                      class="form-control"
-                      name="senha"
-                      id="senha"
-                      placeholder="Senha"
-                      required
-                    />
+                    <input autocomplete="off" suggested: "new-password"
+                    type="password" class="form-control" name="plainPassword"
+                    id="plainPassword" placeholder="Senha" />
                   </div>
                   <div class="col-6 mt-3">
-                    <label for="confirmasenha">Confirme a senha</label>
-                    <input
-                      autocomplete="off"
-                      type="password"
-                      class="form-control"
-                      name="confirmasenha"
-                      id="confirmasenha"
-                      placeholder="Senha"
-                      required
-                    />
+                    <label for="senha">Confirme a senha</label>
+                    <input autocomplete="off" suggested: "new-password"
+                    type="password" class="form-control" name="plainPasswordConfirmation"
+                    id="plainPasswordConfirmation" placeholder="Senha" />
                   </div>
                 </div>
               </div>
@@ -332,7 +287,7 @@
               <button
                 type="submit"
                 form="form"
-                id="save-bt"
+                id="save-btn"
                 class="btn btn-success col-3 offset-2"
               >
                 Salvar
@@ -355,29 +310,11 @@
     <script src="/public/js/jquery-3.6.0.min.js"></script>
     <script src="/public/js/main.js"></script>
     <script src="/public/js/script.js"></script>
+    <script src="/public/js/user.js"></script>
     <script src="/public/js/dist/jquery.mask.js"></script>
     <script src="/public/js/dist/jquery.mask.min.js"></script>
 
     <script>
-      $(document).ready(function () {
-        //Telefone
-        $("#TELEFONE").mask("(99) 99999-9999");
-
-        //CEP
-        $("#CEP").mask("99999-999");
-
-        //CPF
-        $("#CPF").mask("999.999.999-99");
-
-        //CNPJ
-        $("#CEP").mask("99999-999");
-      });
-
-      $("form").on("submit", function (e) {
-        e.preventDefault();
-        var form = $(this).serialize();
-        console.log(form);
-      });
     </script>
   </body>
 </html>
