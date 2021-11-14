@@ -10,7 +10,6 @@
     <title>Universo Down</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
@@ -46,6 +45,7 @@
                       name="firstName"
                       id="firstName"
                       placeholder="Primeiro Nome"
+                      required
                     />
                   </div>
                   <div class="col-6">
@@ -56,6 +56,7 @@
                       name="lastName"
                       id="lastName"
                       placeholder="Sobrenome"
+                      required
                     />
                   </div>
                   <div class="col-4">
@@ -65,7 +66,8 @@
                       class="form-control"
                       name="birthday"
                       id="birthday"
-                      placeholder="CPF"
+                      placeholder="Data de Nascimento"
+                      required
                     />
                   </div>
                   <div class="col-4">
@@ -76,27 +78,31 @@
                       name="email"
                       id="email"
                       placeholder="E-mail"
+                      required
                     />
                   </div>
                   <div class="col-4">
                     <label for="identification">CPF</label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       name="identification"
                       id="identification"
                       placeholder="CPF"
                       maxlength="14"
+                      required
                     />
                   </div>
                   <div class="col-4">
                     <label for="generalRegistration">RG</label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       name="generalRegistration"
                       id="generalRegistration"
                       placeholder="Registro Geral"
+                      maxlength="13"
+                      required
                     />
                   </div>
                   <div class="col-4">
@@ -107,6 +113,7 @@
                       name="issue"
                       id="issue"
                       placeholder="Data de Expedição"
+                      required
                     />
                   </div>
                   <div class="col-4">
@@ -116,6 +123,7 @@
                       class="dropdown-toggle"
                       id="gender"
                       placeholder="Gênero"
+                      required
                     >
                       <option value="0">Escolha um Gênero</option>
                       <option value="Masculino">Masculino</option>
@@ -131,6 +139,7 @@
                       name="issuer"
                       id="issuer"
                       placeholder="Orgão Emissor/Estado"
+                      required
                     />
                   </div>
                   <hr size="4" class="mt-4" />
@@ -143,6 +152,7 @@
                       name="address"
                       id="address"
                       placeholder="Endereço"
+                      required
                     />
                   </div>
                   <div class="col-3">
@@ -153,6 +163,7 @@
                       name="number"
                       id="number"
                       placeholder="Número Residêncial"
+                      required
                     />
                   </div>
                   <div class="col-3">
@@ -163,16 +174,19 @@
                       name="neighborhood"
                       id="neighborhood"
                       placeholder="Bairro"
+                      required
                     />
                   </div>
                   <div class="col-3">
-                    <label for="cep">CEP</label>
+                    <label for="cep">Código Postal</label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       name="zipCode"
                       id="zipCode"
+                      maxlength="9"
                       placeholder="CEP"
+                      required
                     />
                   </div>
                   <div class="col-3">
@@ -183,10 +197,11 @@
                       name="city"
                       id="city"
                       placeholder="Cidade"
+                      required
                     />
                   </div>
                   <div class="col-3">
-                    <label for="confirmasenha">Identidade Nacional</label>
+                    <label for="confirmasenha">Identidade Nacional??</label>
                     <input
                       autocomplete="off"
                       type="text"
@@ -194,11 +209,17 @@
                       name="nationalIdentity"
                       id="nationalIdentity"
                       placeholder="Identidade Nacional??"
+                      required
                     />
                   </div>
                   <div class="col-3">
                     <label for="estado">Estado</label>
-                    <select id="state" name="state" class="dropdown-toggle">
+                    <select
+                      id="state"
+                      name="state"
+                      class="dropdown-toggle"
+                      required
+                    >
                       <option value="AC">Acre</option>
                       <option value="AL">Alagoas</option>
                       <option value="AP">Amapá</option>
@@ -236,17 +257,20 @@
                       class="form-control"
                       name="phone"
                       id="phone"
+                      maxlength="15"
                       placeholder="(DDD+)"
+                      required
                     />
                   </div>
                   <hr size="4" class="mt-4" />
                   <div class="col-6">
-                    <label for="admin_role">Função do Administrador</label>
+                    <label for="admin_role">Função do Administrador(a)</label>
                     <select
                       class="dropdown-toggle"
                       name="adminRole"
                       id="adminRole"
                       placeholder="funcaoAdministrador"
+                      required
                     >
                       <option value="admin">Administrador(a)</option>
                       <option value="member">Membro</option>
@@ -254,16 +278,19 @@
                     </select>
                   </div>
                   <div class="col-6">
-                    <label for="genero">Função do Usuário</label>
+                    <label for="genero">Função do Usuário(a)</label>
                     <select
                       class="dropdown-toggle"
                       name="userRole"
                       id="userRole"
                       placeholder="funcaoUsuario"
+                      required
                     >
                       <option value="secretary">Secretaria(o)</option>
                       <option value="professional">Especialista</option>
-                      <option value="social-assistence">Trabalhador(a) Social</option>
+                      <option value="social-assistence">
+                        Trabalhador(a) Social
+                      </option>
                     </select>
                   </div>
 
@@ -271,13 +298,15 @@
                     <label for="senha">Crie uma senha</label>
                     <input autocomplete="off" suggested: "new-password"
                     type="password" class="form-control" name="plainPassword"
-                    id="plainPassword" placeholder="Senha" />
+                    id="plainPassword" placeholder="Senha" required/>
                   </div>
                   <div class="col-6 mt-3">
                     <label for="senha">Confirme a senha</label>
                     <input autocomplete="off" suggested: "new-password"
-                    type="password" class="form-control" name="plainPasswordConfirmation"
-                    id="plainPasswordConfirmation" placeholder="Senha" />
+                    type="password" class="form-control"
+                    name="plainPasswordConfirmation"
+                    id="plainPasswordConfirmation" placeholder="Senha"
+                    required/>
                   </div>
                 </div>
               </div>
@@ -308,13 +337,11 @@
 
     <!-- JS -->
     <script src="/public/js/jquery-3.6.0.min.js"></script>
-    <script src="/public/js/main.js"></script>
     <script src="/public/js/script.js"></script>
     <script src="/public/js/user.js"></script>
     <script src="/public/js/dist/jquery.mask.js"></script>
     <script src="/public/js/dist/jquery.mask.min.js"></script>
 
-    <script>
-    </script>
+    <script></script>
   </body>
 </html>
