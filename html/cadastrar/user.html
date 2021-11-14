@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Universo Down</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/css/navbar.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+        <div id="nav-placeholder"></div>
+      </nav>
+
+      <!-- Conteúdo da Página  -->
+      <div id="content">
+        <div class="card col-12">
+          <h3 class="mt-4 ml-2" style="text-align: center">
+            Cadastro de Usuário
+          </h3>
+          <div class="card-body">
+            <hr size="4" class="mb-4" />
+            <form class="form-group" id="form">
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <label for="nome">Nome</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="nome"
+                      id="nome"
+                      placeholder="Primeiro Nome"
+                      required
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="nome">Sobrenome</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="sobrenome"
+                      id="sobrenome"
+                      placeholder="Sobrenome"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="dataDeNascimento">Data de Nascimento</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="dataDeNascimento"
+                      id="dataDeNascimento"
+                      placeholder="CPF"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="email">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      placeholder="E-mail"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="cpf">CPF</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="CPF"
+                      id="CPF"
+                      placeholder="CPF"
+                      maxlength="14"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="RG">RG</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      name="RG"
+                      id="RG"
+                      placeholder="Registro Geral"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="expedicao">Data de Expedição</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      name="Expedição"
+                      id="Expedicao"
+                      placeholder="Data de Expedição"
+                      required
+                    />
+                  </div>
+                  <div class="col-4">
+                    <label for="genero">Gênero</label>
+                    <select
+                      name="genero"
+                      class="dropdown-toggle"
+                      id="genero"
+                      placeholder="Gênero"
+                      required
+                    >
+                      <option value="0">Escolha um Gênero</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Feminino">Feminino</option>
+                      <option value="Outros">Outros</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label for="orgao emissor">Orgão Emissor</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Orgão Emissor"
+                      id="orgaoEmissor"
+                      placeholder="Orgão Emissor"
+                      required
+                    />
+                  </div>
+                  <div class="col-6">
+                    <label for="estado emissor">Estado Emissor</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="Estado Emissor"
+                      id="estadoEmissor"
+                      placeholder="Estado Emissor"
+                      required
+                    />
+                  </div>
+
+                  <hr size="4" class="mt-4" />
+
+                  <div class="col-6">
+                    <label for="endereco">Endereço</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="endereco"
+                      id="endereco"
+                      placeholder="Endereço"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="numero">Número</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="numero"
+                      id="numero"
+                      placeholder="Número Residêncial"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="bairro">Bairro</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="bairro"
+                      id="bairro"
+                      placeholder="Bairro"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="cep">CEP</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="cep"
+                      id="CEP"
+                      placeholder="CEP"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="complemento">Complemento</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="complemento"
+                      id="complemento"
+                      placeholder="Apto/Lote"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="cidade">Cidade</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="cidade"
+                      id="cidade"
+                      placeholder="Cidade"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="estado">Estado</label>
+                    <select
+                      id="estado"
+                      name="estado"
+                      class="dropdown-toggle"
+                      required
+                    >
+                      <option value="AC">Acre</option>
+                      <option value="AL">Alagoas</option>
+                      <option value="AP">Amapá</option>
+                      <option value="AM">Amazonas</option>
+                      <option value="BA">Bahia</option>
+                      <option value="CE">Ceará</option>
+                      <option value="DF">Distrito Federal</option>
+                      <option value="ES">Espírito Santo</option>
+                      <option value="GO">Goiás</option>
+                      <option value="MA">Maranhão</option>
+                      <option value="MT">Mato Grosso</option>
+                      <option value="MS">Mato Grosso do Sul</option>
+                      <option value="MG">Minas Gerais</option>
+                      <option value="PA">Pará</option>
+                      <option value="PB">Paraíba</option>
+                      <option value="PR">Paraná</option>
+                      <option value="PE">Pernambuco</option>
+                      <option value="PI">Piauí</option>
+                      <option value="RJ">Rio de Janeiro</option>
+                      <option value="RN">Rio Grande do Norte</option>
+                      <option value="RS">Rio Grande do Sul</option>
+                      <option value="RO">Rondônia</option>
+                      <option value="RR">Roraima</option>
+                      <option value="SC">Santa Catarina</option>
+                      <option value="SP">São Paulo</option>
+                      <option value="SE">Sergipe</option>
+                      <option value="TO">Tocantins</option>
+                      <option value="EX">Estrangeiro</option>
+                    </select>
+                  </div>
+                  <div class="col-3">
+                    <label for="telefone">Telefone</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="telefone"
+                      id="TELEFONE"
+                      placeholder="(DDD+)"
+                      required
+                    />
+                  </div>
+                  <hr size="4" class="mt-4" />
+                  <div class="col-6">
+                    <label for="genero">Função do Administrador</label>
+                    <select
+                      name="adminFunc"
+                      class="dropdown-toggle"
+                      id="adminFunc"
+                      placeholder="funcaoAdministrador"
+                      required
+                    >
+                      <option value="Masculino">Proprietário(a)</option>
+                      <option value="Feminino">Administrador(a)</option>
+                      <option value="Outros">Membro</option>
+                    </select>
+                  </div>
+                  <div class="col-6">
+                    <label for="genero">Função do Usuário</label>
+                    <select
+                      name="userFunc"
+                      class="dropdown-toggle"
+                      id="userFunc"
+                      placeholder="funcaoUsuario"
+                      required
+                    >
+                      <option value="Masculino">Secretaria(o)</option>
+                      <option value="Feminino">Trabalhador(a) Social</option>
+                      <option value="Outros">Especialista</option>
+                    </select>
+                  </div>
+
+                  <div class="col-6 mt-3">
+                    <label for="senha">Crie uma senha</label>
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      class="form-control"
+                      name="senha"
+                      id="senha"
+                      placeholder="Senha"
+                      required
+                    />
+                  </div>
+                  <div class="col-6 mt-3">
+                    <label for="confirmasenha">Confirme a senha</label>
+                    <input
+                      autocomplete="off"
+                      type="password"
+                      class="form-control"
+                      name="confirmasenha"
+                      id="confirmasenha"
+                      placeholder="Senha"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+            </form>
+            <hr size="4" class="mt-4" />
+            <div class="row mt-4">
+              <button
+                type="submit"
+                form="form"
+                id="save-bt"
+                class="btn btn-success col-3 offset-2"
+              >
+                Salvar
+              </button>
+              <button
+                type="reset"
+                form="form"
+                id="cancel-btn"
+                class="btn btn-danger col-3 offset-2"
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/public/js/jquery-3.6.0.min.js"></script>
+    <script src="/public/js/main.js"></script>
+    <script src="/public/js/script.js"></script>
+    <script src="/public/js/dist/jquery.mask.js"></script>
+    <script src="/public/js/dist/jquery.mask.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        //Telefone
+        $("#TELEFONE").mask("(99) 99999-9999");
+
+        //CEP
+        $("#CEP").mask("99999-999");
+
+        //CPF
+        $("#CPF").mask("999.999.999-99");
+
+        //CNPJ
+        $("#CEP").mask("99999-999");
+      });
+
+      $("form").on("submit", function (e) {
+        e.preventDefault();
+        var form = $(this).serialize();
+        console.log(form);
+      });
+    </script>
+  </body>
+</html>
