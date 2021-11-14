@@ -1,3 +1,6 @@
+var baseurl = window.location.origin+window.location.pathname;
+var baseUrlApi = "http://localhost:3000/api/v1";
+
 $(document).ready(function () {
   $("#save-btn").click(function () {
     var name = $("#name").val();
@@ -14,7 +17,7 @@ $(document).ready(function () {
         name: $("#name").val(),
       };
       $.ajax({
-        url: "http://localhost:3000/api/v1/speciality",
+        url:  baseUrlApi + "/speciality",
         type: "POST",
         headers: {
           "x-access-token": localStorage.getItem("Authorization"),
@@ -25,14 +28,16 @@ $(document).ready(function () {
         data: JSON.stringify(data),
         success: function (data) {
           if (data != "") {
-            document.location.reload(true);
+            document.location.reload(true)
             alert("Cadastro Realizado!");
           }
         },
         error: function (err) {
-          alert("Erro Desconhecido!");
+          alert("Speciality: Erro Desconhecido!" + err);
         },
       });
     }
   });
 });
+
+
