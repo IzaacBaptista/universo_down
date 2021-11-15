@@ -38,6 +38,8 @@ $(document).ready(function () {
     var active = document.querySelector("input[name=active]").checked
       ? true
       : false;
+    var photo = $("#txt").val();
+    
     var data = {
       name: $("#name").val(),
       email: $("#email").val(),
@@ -60,7 +62,7 @@ $(document).ready(function () {
       occupation: $("#occupation").val(),
       nationalIdentity: $("#nationalIdentity").val(),
       additionalInformation: $("#additionalInformation").val(),
-      photo: $("#txt").val(),
+      photo: photo,
       hasBenefits: hasBenefits,
       active: active,
       socialIdentificationNumber: $("#socialIdentificationNumber").val(),
@@ -98,10 +100,3 @@ $(document).ready(function () {
     });
   });
 });
-
-/*
-var hasBenefits = document.getElementsByName("hasBenefits")[0].checked? 'Sim' : 'Não';
-var active = document.getElementsByName("active")[0].checked? 'Sim' : 'Não';
-console.log(hasBenefits);
-console.log(active);
-*/
