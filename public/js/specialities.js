@@ -3,97 +3,80 @@ import { autocomplete } from "./searchbar.js";
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
-  $("#save-btn").click(function () {
-    var name = $("#searchbar-placeholder").val();
-    if (name == "") {
-      alert("Campo em Branco!!!");
-    } else {
-      $("input")
-        .keyup(function () {
-          var value = $(this).val();
-          $("#searchbar-placeholder").text(value);
-        })
-        .keyup();
-      var data = {
-        name: $("#searchbar-placeholder").val(),
-      };
-      $.ajax({
-        url: $(baseUrlApi) + "/specialities",
-        type: "POST",
-        headers: {
-          "x-access-token": localStorage.getItem("Authorization"),
-        },
-        cache: false,
-        contentType: "application/json",
-        dataType: "JSON",
-        data: JSON.stringify(data),
-        success: function (data) {
-          if (data != "") {
-            alert("Cadastro Realizado!");
-          }
-        },
-        error: function (err) {
-          alert("Erro Desconhecido!");
-        },
-      });
-    }
+  $("#save-btn").on("click", function () {
+    var input = localStorage.getItem("id");
+    // alert(input);
+    var specialityId = $("#specialityId :selected").val();
+    var data = {
+      userId: input,
+      specialityId: specialityId,
+    };
+    console.log(data);
+    $.ajax({
+      url: baseUrlApi + "/specialities",
+      type: "POST",
+      headers: {
+        "x-access-token": localStorage.getItem("Authorization"),
+      },
+      cache: false,
+      contentType: "application/json",
+      dataType: "JSON",
+      data: JSON.stringify(data),
+      success: function (data) {
+        if (data != "") {
+          alert("Cadastro Realizado!");
+        }
+      },
+      error: function (err) {
+        alert("Erro Desconhecido!");
+      },
+    });
   });
 });
-function arrayOfNAmes() {
-  var arrayNames = [];
-  $.ajax({
-    url:  baseUrlApi + "/user/",
-    type: "GET",
-    dataType: "JSON",
-    headers: {
-      "x-access-token": localStorage.getItem("Authorization"),
-    },
-    success: function (data) {
-      var myJSON = data;
-      $.each(myJSON, function (index, value) {
-        // console.log(value.firstName + ' ' + value.lastName);
-        //var element = {id: value.id, firstName: value.firstName, lastName: value.lastName };
 
-          //arrayNames[index] = { User: element };
-          arrayNames.push({ id: value.id, firstName: value.firstName, lastName: value.lastName });
-      
-      });
-    },
-  });
-  console.log(arrayNames);
-  return arrayNames.toString();
-}
-autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
-
-
-
-$(document).ready(function(){
-  function exporst() {
-
-  
+$(document).ready(function () {
+  function arrayOfNAmes() {
+    var arrayNames = [];
     $.ajax({
-      url:  baseUrlApi + "/speciality/",
+      url: baseUrlApi + "/user",
       type: "GET",
       dataType: "JSON",
       headers: {
         "x-access-token": localStorage.getItem("Authorization"),
       },
       success: function (data) {
-        $("#selectSpeciality").empty();
-        var myJSON = data;
-        $.each(myJSON, function (index, value) {
-          $("#selectSpeciality").append("<option value='"+value.id+"'>"+ value.id + " - " + value.name+"</option>");
-        })
-        
-        $("#selectSpeciality").on('change', function(){
-          var selectedCountry = $(this).children("option:selected").val();
-          console.log("selected item" + selectedCountry);
+        $.each(data, function (index, value) {
+          value.userRole == "profissional"
+            ? arrayNames.push({
+                id: value.id,
+                firstName: value.firstName,
+                lastName: value.lastName,
+              })
+            : null;
         });
       },
     });
+
+    // console.log(arrayNames)
+    return arrayNames;
   }
+  
+  autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
 
+  $.ajax({
+    url: baseUrlApi + "/speciality",
+    type: "GET",
+    dataType: "JSON",
+    headers: {
+      "x-access-token": localStorage.getItem("Authorization"),
+    },
+    success: function (data) {
+      // $("#specialityId").empty();
+      $.each(data, function (index, value) {
+        $("#specialityId").append(
+          "<option value='" + value.id + "'>" + value.id + " - " + value.name + "</option>"
+        );
+      });
+    },
   });
-
-  export { exporst };
-   
+});
