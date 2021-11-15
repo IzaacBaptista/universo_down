@@ -84,25 +84,4 @@ function autocomplete(inp, arr) {
     closeAllLists(e.target);
   });
 }
-function arrayOfNAmes() {
-  var arrayNames = [];
-
-    $.ajax({
-      url: "http://localhost:3000/api/v1/user/",
-      type: "GET",
-      dataType: "JSON",
-      headers: {
-        'x-access-token': localStorage.getItem("Authorization")
-      },
-      success: function (data) {
-          var myJSON = data;
-          $.each(myJSON, function(index, value) {
-            // console.log(value.firstName + ' ' + value.lastName);
-            arrayNames.push(value.firstName + ' ' + value.lastName);
-          });
-        } 
-      }
-    )
-    return arrayNames;
-  }
-autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
+export { autocomplete };
