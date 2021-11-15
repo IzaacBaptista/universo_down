@@ -171,9 +171,6 @@ select, #name {
   background-color: #F1F1F1;
   color: #767676;
   border: 1px solid #EFEFEF;
-  font-size: 2.5vw;
-  height: 5vw;
-  width: 90%;
   padding-left: 10px;
   font-weight: normal;
 }
