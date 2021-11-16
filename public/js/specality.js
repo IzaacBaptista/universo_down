@@ -7,14 +7,8 @@ $(document).ready(function () {
     if (name == "") {
       alert("Campo em Branco!!!");
     } else {
-      $("input")
-        .keyup(function () {
-          var value = $(this).val();
-          $("#name").text(value);
-        })
-        .keyup();
       var data = {
-        name: $("#name").val(),
+        name: name,
       };
       $.ajax({
         url: baseUrlApi + "/speciality",
@@ -27,10 +21,8 @@ $(document).ready(function () {
         dataType: "JSON",
         data: JSON.stringify(data),
         success: function (data) {
-          if (data != "") {
-            document.location.reload(true);
-            alert("Cadastro Realizado!");
-          }
+          document.location.reload(true);
+          alert("Cadastro Realizado!");
         },
         error: function (err) {
           alert("Speciality: Erro Desconhecido!" + err);
@@ -39,5 +31,3 @@ $(document).ready(function () {
     }
   });
 });
-
-

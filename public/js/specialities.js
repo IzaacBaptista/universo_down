@@ -3,9 +3,9 @@ import { autocomplete } from "./searchbar.js";
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
+  window.localStorage.removeItem("id");
   $("#save-btn").on("click", function () {
     var input = localStorage.getItem("id");
-    // alert(input);
     var specialityId = $("#specialityId :selected").val();
     var data = {
       userId: input,
@@ -49,8 +49,7 @@ $(document).ready(function () {
           value.userRole == "profissional"
             ? arrayNames.push({
                 id: value.id,
-                firstName: value.firstName,
-                lastName: value.lastName,
+                name: value.firstName + " " + value.lastName
               })
             : null;
         });

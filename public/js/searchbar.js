@@ -19,18 +19,18 @@ function autocomplete(inp, arr) {
     this.parentNode.appendChild(a);
 
     for (const [key, value] of Object.entries(arr)) {
+      window.localStorage.removeItem("id");
       /*Verifica se começa com a letra digitada:*/
-      var fullName = value.firstName + " " + value.lastName;
-      if (fullName.substr(0, val.length).toLowerCase() == val.toLowerCase()) 
+      if (value.name.substr(0, val.length).toLowerCase() == val.toLowerCase()) 
       { 
         /*Cria uma DIV para cada resultado:*/
         b = document.createElement("DIV");
         // console.log(value.id);
         /*Negrito na primeira letra*/
         b.innerHTML =
-          "<strong>" + fullName.substr(0, val.length) + "</strong>";
-        b.innerHTML += fullName.substr(val.length);
-        b.innerHTML += "<input class='myclass' type='hidden' id='" + value.id + "' value='" + fullName + "'>";
+          "<strong>" + value.name.substr(0, val.length) + "</strong>";
+        b.innerHTML += value.name.substr(val.length);
+        b.innerHTML += "<input class='myclass' type='hidden' id='" + value.id + "' value='" + value.name + "'>";
         /*Executa a funçao quando há um clique em um resultado da lista*/
         b.addEventListener("click", function (e) {
           inp.value = this.getElementsByTagName("input")[0].value;
