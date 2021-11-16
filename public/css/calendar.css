@@ -1,0 +1,29 @@
+div {
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  input[type="number"] {
+    width: 100px;
+  }
+  
+  input + span {
+    padding-right: 30px;
+  }
+  
+  input:invalid+span:after {
+    position: absolute;
+    color: #f4b05f;
+    font-size: 2rem;
+    content: '✖';
+    padding-left: 5px;
+  }
+  
+  input:valid+span:after {
+    position: absolute;
+    font-size: 20px;
+    font-size: 2rem;
+    color: #3c98a5;
+    content: '✓';
+    padding-left: 5px;
+  }
