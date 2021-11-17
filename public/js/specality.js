@@ -21,11 +21,11 @@ $(document).ready(function () {
         dataType: "JSON",
         data: JSON.stringify(data),
         success: function (data) {
-          document.location.reload(true);
           alert("Cadastro Realizado!");
+          location.reload(true);
         },
         error: function (err) {
-          alert("Speciality: Erro Desconhecido!" + err);
+          alert("Speciality: Erro Desconhecido!" + JSON.stringify(err));
         },
       });
     }

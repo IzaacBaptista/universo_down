@@ -32,7 +32,7 @@ $(document).ready(function () {
 
     if (x < max_fields) {
       x++;
-      $.get("familiar_adicional.html", function (data) {
+      $.get("../../html/cadastrar/additionalRelated.html", function (data) {
         $(wrapper).append(data);
       });
     } else {
@@ -43,7 +43,7 @@ $(document).ready(function () {
   /* Remover Form Familiar */
   $(wrapper).on("click", ".delete", function (e) {
     e.preventDefault();
-    $(this).parents("#form_familiar").remove();
+    $(this).parents("#form").remove();
     x--;
   });
 });

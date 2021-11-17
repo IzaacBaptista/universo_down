@@ -30,7 +30,7 @@ function autocomplete(inp, arr) {
         b.innerHTML =
           "<strong>" + value.name.substr(0, val.length) + "</strong>";
         b.innerHTML += value.name.substr(val.length);
-        b.innerHTML += "<input class='myclass' type='hidden' id='" + value.id + "' value='" + value.name + "'>";
+        b.innerHTML += "<input type='hidden' id='" + value.id + "' value='" + value.name + "'>";
         /*Executa a funçao quando há um clique em um resultado da lista*/
         b.addEventListener("click", function (e) {
           inp.value = this.getElementsByTagName("input")[0].value;

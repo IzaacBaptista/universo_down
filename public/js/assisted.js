@@ -80,6 +80,7 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: function (data) {
         alert("Cadastro Realizado!");
+        location.reload(true);
       },
       error: function (err) {
         if (err.status == 304) {

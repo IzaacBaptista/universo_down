@@ -29,10 +29,11 @@ $(document).ready(function () {
         success: function (data) {
           if (data != "") {
             alert("Cadastro Realizado!");
+            location.reload(true);
           }
         },
         error: function (err) {
-          alert("Erro Desconhecido!");
+          alert("Erro Desconhecido! " + JSON.stringify(err));
         },
       });
   });

@@ -7,6 +7,7 @@ $(document).ready(function () {
   $("#save-btn").on("click", function () {
     var input = localStorage.getItem("id");
     var specialityId = $("#specialityId :selected").val();
+    
     var data = {
       userId: input,
       specialityId: specialityId,
@@ -25,10 +26,11 @@ $(document).ready(function () {
       success: function (data) {
         if (data != "") {
           alert("Cadastro Realizado!");
+          location.reload(true);
         }
       },
       error: function (err) {
-        alert("Erro Desconhecido!");
+        alert("Erro Desconhecido!  " + JSON.stringify(err));
       },
     });
   });
