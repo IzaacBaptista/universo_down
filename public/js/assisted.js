@@ -1,4 +1,3 @@
-var baseurl = window.location.origin + window.location.pathname;
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
@@ -32,6 +31,7 @@ function encodeImgToBase64() {
 
 $(document).ready(function () {
   $("#save-btn").click(function () {
+    e.preventDefault();
     var hasBenefits = document.querySelector("input[name=hasBenefits]").checked
       ? true
       : false;

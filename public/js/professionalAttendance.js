@@ -5,6 +5,7 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 $(document).ready(function () {
   window.localStorage.removeItem("id");
   $("#save-btn").on("click", function () {
+    e.preventDefault();
     var userId = localStorage.getItem("id");
     if (userId == 0) {
         alert("Campo Paciente em Branco");
@@ -35,10 +36,11 @@ $(document).ready(function () {
       success: function (data) {
         if (data != "") {
           alert("Cadastro Realizado!");
+          location.reload(true);
         }
       },
       error: function (err) {
-        alert("Erro Desconhecido!" + err);
+        alert("Erro Desconhecido!" + JSON.stringify(err));
       },
     });
   });

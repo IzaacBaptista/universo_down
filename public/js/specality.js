@@ -3,6 +3,7 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
   $("#save-btn").click(function () {
+    e.preventDefault();
     var name = $("#name").val();
     if (name == "") {
       alert("Campo em Branco!!!");

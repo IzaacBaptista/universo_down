@@ -17,6 +17,7 @@ $(document).ready(function () {
 
 $(document).ready(function (e) {
   $("#save-btn").click(function () {
+    e.preventDefault();
     var data = {
       firstName: $("#firstName").val(),
       lastName: $("#lastName").val(),

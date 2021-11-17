@@ -5,6 +5,7 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 $(document).ready(function () {
   window.localStorage.removeItem("id");
   $("#save-btn").on("click", function () {
+    e.preventDefault();
     var input = localStorage.getItem("id");
     var specialityId = $("#specialityId :selected").val();
     

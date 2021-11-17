@@ -5,6 +5,7 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 $(document).ready(function () {
   window.localStorage.removeItem("id");
   $("#save-btn").on("click", function () {
+    e.preventDefault();
     var assistedId = localStorage.getItem("id");
     var date = document.getElementById("date");
     var responseDate = document.getElementById("responseDate");

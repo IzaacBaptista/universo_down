@@ -1,3 +1,5 @@
+var baseUrlApi = "http://localhost:3000/api/v1";
+
 $(document).ready(function () {
   $("#login").click(function () {
     var email = $("#email").val();
@@ -25,7 +27,7 @@ $(document).ready(function () {
         plainPassword: $("#password").val(),
       };
       $.ajax({
-        url: "http://localhost:3000/api/v1/login",
+        url: baseUrlApi + "/login",
         headers: {
           'Authorization':'Authorization ' + data.token,
           'Content-Type':'application/json'
@@ -37,11 +39,10 @@ $(document).ready(function () {
         data: JSON.stringify(data),
         success: function (data) {
           const token = data.token;
-          window.location.href = '/html/listar/organization.html';
           window.localStorage.setItem('Authorization', token);
         },
         error: function (err) {
-          alert(err);
+          alert(JSON.stringify(err));
         },
       });
     }
