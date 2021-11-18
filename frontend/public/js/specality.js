@@ -1,4 +1,3 @@
-var baseurl = window.location.origin + window.location.pathname;
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
@@ -10,7 +9,8 @@ $(document).ready(function () {
     } else {
       var data = {
         name: name,
-      };
+      }
+    
       $.ajax({
         url: baseUrlApi + "/speciality",
         type: "POST",

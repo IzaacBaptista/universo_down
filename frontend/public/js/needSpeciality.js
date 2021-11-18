@@ -1,6 +1,7 @@
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
+  window.localStorage.removeItem("id");
   $("#save-btn").click(function (e) {
     e.preventDefault();
     var data = {
@@ -36,5 +37,21 @@ $(document).ready(function () {
         }
       },
     });
+  });
+  $.ajax({
+    url: baseUrlApi + "/speciality",
+    type: "GET",
+    dataType: "JSON",
+    headers: {
+      "x-access-token": localStorage.getItem("Authorization"),
+    },
+    success: function (data) {
+      // $("#specialityId").empty();
+      $.each(data, function (index, value) {
+        $("#specialityId").append(
+          "<option value='" + value.id + "'>" + value.id + " - " + value.name + "</option>"
+        );
+      });
+    },
   });
 });

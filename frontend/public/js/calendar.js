@@ -3,10 +3,10 @@ import { autocomplete } from "./searchbar.js";
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
-  window.localStorage.removeItem("id");
+  window.localStorage.removeItem("userId");
   $("#save-btn").click(function (e) {
     e.preventDefault();
-    var userId = localStorage.getItem("id");
+    var userId = localStorage.getItem("userId");
     var dayOfWeek = $("#dayOfWeek :selected").val();
     var startHour = document.getElementById("startHour");
     var endHour = document.getElementById("endHour");
@@ -38,31 +38,4 @@ $(document).ready(function () {
         },
       });
   });
-});
-$(document).ready(function () {
-  function arrayOfNAmes() {
-    var arrayNames = [];
-    $.ajax({
-      url: baseUrlApi + "/user",
-      type: "GET",
-      dataType: "JSON",
-      headers: {
-        "x-access-token": localStorage.getItem("Authorization"),
-      },
-      success: function (data) {
-        $.each(data, function (index, value) {
-          value.userRole == "profissional"
-            ? arrayNames.push({
-                id: value.id,
-                name: value.firstName + " " + value.lastName,
-              })
-            : null;
-        });
-      },
-    });
-    // console.log(arrayNames)
-    return arrayNames;
-  }
-
-  autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
 });

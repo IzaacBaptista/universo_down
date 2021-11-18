@@ -30,6 +30,7 @@ function encodeImgToBase64() {
 }
 
 $(document).ready(function () {
+  window.localStorage.removeItem("assistedId");
   $("#save-btn").click(function (e) {
     e.preventDefault();
     var hasBenefits = document.querySelector("input[name=hasBenefits]").checked
