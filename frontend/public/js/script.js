@@ -3,10 +3,20 @@ const path = ""
 $.get("/frontend/html/partials/navbar.html", function (data) {
   $("#nav-placeholder").replaceWith(data);
 });
-/* Carregar a search lateral */
-const pathSearchBar = ""
-$.get("/frontend/html/partials/searchbar.html", function (data) {
-  $("#searchbar-placeholder").replaceWith(data);
+// /* Carregar a search */
+// const pathSearchBar = ""
+// $.get("/frontend/html/partials/searchbar.html", function (data) {
+//   $("#searchbar-placeholder").replaceWith(data);
+// });
+/* Carregar a search User*/
+const pathSearchBarUser = ""
+$.get("/frontend/html/partials/searchUser.html", function (data) {
+  $("#searchbar-user").replaceWith(data);
+});
+/* Carregar a search Assisted*/
+const pathSearchBarAssisted = ""
+$.get("/frontend/html/partials/searchAssisted.html", function (data) {
+  $("#searchbar-assisted").replaceWith(data);
 });
 
 
@@ -32,7 +42,7 @@ $(document).ready(function () {
 
     if (x < max_fields) {
       x++;
-      $.get("../../frontend/html/cadastrar/additionalRelated.html", function (data) {
+      $.get("../../html/cadastrar/additionalRelated.html", function (data) {
         $(wrapper).append(data);
       });
     } else {
