@@ -44,16 +44,17 @@
                                         placeholder="id Atendente" required>
                                 </div>
                                 <div class="col-6">
-                                    <label for="specialityId">id Especialidade</label>
-                                    <input type="number" class="form-control" name="Especialista" id="specialityId"
-                                        placeholder="id Especialidade" required>
-                                </div>
-                                </div>
+                                <!-- SelectBox  -->
+                                <h6 class="col-12">Nome da Especialidade </h6>
+                                <select class="col-12" id="specialityId" name="specialityId">
+                                    <option value="" selected disabled hidden>- Selecione uma Especialidade -</option>
+                                </select>
+                            </div>
                             </div>
                         </div>
                     </form>
                     <div class="row mt-4 mb-4">
-                        <button type="submit" name="save-btn" id="save-btn" form="form" class="btn btn-success col-3 offset-2">Salvar</button>
+                        <button type="button" name="save-btn" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
                         <button type="reset" form="form" class="btn btn-danger col-3 offset-2">Cancelar</button>
                     </div>
                 </div>
