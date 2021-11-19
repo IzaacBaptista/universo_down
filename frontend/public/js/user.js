@@ -60,17 +60,20 @@ $(document).ready(function (e) {
       error: function (err) {
         if (err.status == 304) {
           alert("Not Modified!!");
+          alert(err + "ERRO " + JSON.stringify(err));
         }
         if (err.status == 400) {
           alert("Estrutura de requisição inválida!!");
+          alert(err + "ERRO " + JSON.stringify(err));
         }
         if (err.status == 401) {
           alert("Usuário não possui permissão para esta ação!");
+          alert(err + "ERRO " + JSON.stringify(err));
         }
         if (err.status == 500) {
           alert("O servidor encontrou uma situação com a qual não sabe lidar");
         } else {
-          alert("ERRO " + JSON.stringify(err));
+          alert(err + "ERRO " + JSON.stringify(err));
         }
       },
     });

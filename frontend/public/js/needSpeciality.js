@@ -53,5 +53,21 @@ $(document).ready(function () {
         );
       });
     },
+    error: function (err) {
+      if (err.status == 304) {
+        alert("Not Modified!!");
+      }
+      if (err.status == 400) {
+        alert("Estrutura de requisição inválida!!");
+      }
+      if (err.status == 401) {
+        alert("Usuário não possui permissão para esta ação!");
+      }
+      if (err.status == 500) {
+        alert("O servidor encontrou uma situação com a qual não sabe lidar");
+      } else {
+        alert(err + "ERRO " + JSON.stringify(err));
+      }
+    },
   });
 });
