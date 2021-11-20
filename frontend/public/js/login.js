@@ -39,8 +39,9 @@ $(document).ready(function () {
         data: JSON.stringify(data),
         success: function (data) {
           const token = data.token;
-          window.location.href = '/frontend/index.html';
-          window.localStorage.setItem('Authorization', token);
+          window.location.href = "/frontend/index.html";
+          window.localStorage.setItem("email", email)
+          window.localStorage.setItem("Authorization", token);
         },
         error: function (err) {
           if (err.status == 304) {
