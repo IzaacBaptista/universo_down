@@ -1,20 +1,15 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Universo Down</title>
+    <title>Necessidade de Especialidade</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/frontend/public/css/bootstrap.min.css" />
-    
 
     <!-- CSS -->
     <link rel="stylesheet" href="/frontend/public/css/navbar.css" />
@@ -22,54 +17,51 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="nav-placeholder"></div>
+    </nav>
 
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div id="nav-placeholder"></div>
-        </nav>
-
-        <!-- Conteúdo da Página  -->
-        <div id="content">
-            <div class="card col-12">
-                <h3 class="mt-4 ml-2 titulo">Atendimento Profissional</h3>
-                <hr>
-                <div class="card-body">
-                    <form class="form-group" id="form">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="evolutionRecordId">id Atendente</label>
-                                    <input type="number" class="form-control" name="resa" id="evolutionRecordId"
-                                        placeholder="id Atendente" required>
-                                </div>
-                                <div class="col-6">
-                                <!-- SelectBox  -->
-                                <h6 class="col-12">Nome da Especialidade </h6>
-                                <select class="col-12" id="specialityId" name="specialityId">
-                                    <option value="" selected disabled hidden>- Selecione uma Especialidade -</option>
-                                </select>
-                            </div>
-                            </div>
+    <!-- Conteúdo da Página  -->
+    <div id="content">
+        <div class="card col-12">
+            <h3 class="mt-4 ml-2 titulo">Necessidade de Especialidade</h3>
+            <hr>
+            <div class="card-body">
+              <form class="form-group" id="form">
+                <div class="container">
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="col-12">
+                          <!-- SearchBar  -->
+                          <h6 class="col-12">Nome do(a) Paciente</h6>
+                          <div id="searchbar-evo" name="evoId"></div>
                         </div>
-                    </form>
+                        <div class="col-6">
+                          <!-- SelectBox  -->
+                          <h6 class="col-12">Nome da Especialidade </h6>
+                          <select class="col-12" id="specialityId" name="specialityId">
+                              <option value="" selected disabled hidden>- Selecione uma Especialidade -</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
                     <div class="row mt-4 mb-4">
                         <button type="button" name="save-btn" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
                         <button type="reset" form="form" class="btn btn-danger col-3 offset-2">Cancelar</button>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
     </div>
-
+  </div>
     <!-- JS -->
     <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
     <script src="/frontend/public/js/main.js"></script>
     <script src="/frontend/public/js/script.js"></script>
     <script src="/frontend/public/js/needSpeciality.js"></script>
     <script>
-
-    
 </body>
-
 </html>
