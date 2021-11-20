@@ -36,6 +36,7 @@ $(document).ready(function () {
         }
       },
       error: function (err) {
+        location.reload(true);
         switch (err.status) {
           case 304:
             alert("Sem Alteração!!");
@@ -57,33 +58,5 @@ $(document).ready(function () {
       },
     });
   });
-
-//   function getByEmail() {
-//     var array = [];
-//     $.ajax({
-//       url: baseUrlApi + "/user",
-//       type: "GET",
-//       dataType: "JSON",
-//       headers: {
-//         "x-access-token": localStorage.getItem("Authorization"),
-//       },
-//       success: function (data) {
-//         localStorage.removeItem("userId");
-//         $.each(data, function (index, value) {  
-//           value.email === localStorage.getItem("email")
-//             ? array.push({
-//                 id: value.id,
-//                 name: value.firstName + " " + value.lastName,
-//                 email: value.email,
-//                 userId: localStorage.setItem("userId", value.id)
-//               })
-//             : null;
-//         });
-//         console.log(JSON.stringify(array));
-//       },
-//     });
-//     // console.log(array);
-//     return array;
-//   }
-//   autocomplete(document.getElementById("searchUser"), getByEmail());
 });
+

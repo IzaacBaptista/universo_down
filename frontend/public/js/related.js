@@ -67,20 +67,24 @@ $(document).ready(function () {
         location.reload(true);
       },
       error: function (err) {
-        if (err.status == 304) {
-          alert("Not Modified!!");
-        }
-        if (err.status == 400) {
-          alert("Estrutura de requisição inválida!!");
-        }
-        if (err.status == 401) {
-          alert("Usuário não possui permissão para esta ação!");
-        }
-        if (err.status == 500) {
-          alert("O servidor encontrou uma situação com a qual não sabe lidar");
-          alert(JSON.stringify(err));
-        } else {
-          alert(err + "ERRO " + JSON.stringify(err));
+        location.reload(true);
+        switch (err.status) {
+          case 304:
+            alert("Sem Alteração!!");
+            break;
+          case 400:
+            alert("Estrutura de requisição inválida!!");
+            break;
+          case 401:
+            alert("Usuário não possui permissão para esta ação!");
+            break;
+          case 500:
+            alert(
+              "O servidor encontrou uma situação com a qual não sabe lidar"
+            );
+            break;
+          default:
+            alert("Erro Desconhecido" + err.status);
         }
       },
     });
