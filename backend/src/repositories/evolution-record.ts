@@ -39,5 +39,15 @@ export default class EvolutionRecordRepository
             }
         })
     }
+    async findAllToSearchEvolution(
+        context: Context
+    ): Promise<EvolutionRecord[]> {
+        return this.find({
+            where: {
+                organizationId: context.organization.id
+            },
+            relations: ['assisted']
+        })
+    }
 
 }

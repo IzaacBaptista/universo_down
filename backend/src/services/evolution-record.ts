@@ -48,9 +48,7 @@ export default class EvolutionRecordService {
         })
     }
 
-    async delete(
-        id: number
-    ) {
+    async delete(id: number) {
         return getManager().transaction(async db => {
             const repository = db.getCustomRepository(EvolutionRecordRepository)
             const evolutionRecord = await repository.findById(id)
@@ -59,23 +57,20 @@ export default class EvolutionRecordService {
         })
     }
 
-    async findById(
-        id: number
-    ) {
+    async findById(id: number) {
         return this.repository.findById(id)
     }
 
-    async findByAssistedId(
-        context: Context,
-        id: number
-    ) {
+    async findByAssistedId(context: Context,id: number) {
         return this.repository.findByAssistedId(context, id)
     }
 
-    async findAll(
-        context: Context
-    ) {
+    async findAll(context: Context) {
         return this.repository.findAll(context)
+    }
+
+    async findAllToSearchEvolution(context: Context) {
+        return this.repository.findAllToSearchEvolution(context)
     }
 
 }
