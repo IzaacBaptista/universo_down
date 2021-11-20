@@ -30,6 +30,7 @@ function autocomplete(inp, arr) {
           value.name +
           "'>";
         b.addEventListener("click", function (e) {
+          inp.value = this.getElementsByTagName("input")[0].value
           value.evolutionRecordId = this.getElementsByTagName("input")[0].id;
           localStorage.setItem("evolutionRecordId", value.evolutionRecordId);
           console.log("evoID  " + value.evolutionRecordId);
@@ -104,7 +105,6 @@ function arrayOfNames() {
       });
     },
     error: function (err) {
-      location.reload(true);
       switch (err.status) {
         case 304:
           alert("Sem Alteração!!");
