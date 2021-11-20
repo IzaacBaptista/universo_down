@@ -84,7 +84,6 @@ $(document).ready(function () {
         location.reload(true);
       },
       error: function (err) {
-        location.reload(true);
         switch (err.status) {
           case 304:
             alert("Sem Alteração!!");
