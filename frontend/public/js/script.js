@@ -3,11 +3,11 @@ const path = ""
 $.get("/frontend/html/partials/navbar.html", function (data) {
   $("#nav-placeholder").replaceWith(data);
 });
-// /* Carregar a search */
-// const pathSearchBar = ""
-// $.get("/frontend/html/partials/searchbar.html", function (data) {
-//   $("#searchbar-placeholder").replaceWith(data);
-// });
+/* Carregar a search */
+const pathSearchBar = ""
+$.get("/frontend/html/partials/searchEvo.html", function (data) {
+  $("#searchbar-evo").replaceWith(data);
+});
 /* Carregar a search User*/
 const pathSearchBarUser = ""
 $.get("/frontend/html/partials/searchUser.html", function (data) {

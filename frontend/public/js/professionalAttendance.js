@@ -1,30 +1,26 @@
-import { autocomplete } from "./searchbar.js";
 
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
-  window.localStorage.removeItem("id");
+  window.localStorage.removeItem("evolutionRecordId");
   $("#save-btn").click(function (e) {
     e.preventDefault();
-    var userId = localStorage.getItem("id");
-    if (userId == 0) {
-        alert("Campo Paciente em Branco");
-    }
+    var evolutionRecordId = localStorage.getItem("evolutionRecordId");
+    console.log(evolutionRecordId);
     var date = document.getElementById("date");
     var result = document.getElementById("result");
     var quantify = document.getElementById("quantify");
-    var observation = document.getElementById("observation");
 
     var data = {
-      userId: userId,
-      data: date,
-      result: result,
-      quantify: quantify,
-      observation: observation,
+      evolutionRecordId: evolutionRecordId,
+      date: date.value,
+      result: result.value,
+      quantify: quantify.value
     };
-    alert(data);
+    console.log(data);
+
     $.ajax({
-      url: baseUrlApi + "/professionalsAttendances",
+      url: baseUrlApi + "/professionalAttendance",
       type: "POST",
       headers: {
         "x-access-token": localStorage.getItem("Authorization"),
@@ -40,31 +36,54 @@ $(document).ready(function () {
         }
       },
       error: function (err) {
-        alert("Erro Desconhecido!" + JSON.stringify(err));
+        switch (err.status) {
+          case 304:
+            alert("Sem Alteração!!");
+            break;
+          case 400:
+            alert("Estrutura de requisição inválida!!");
+            break;
+          case 401:
+            alert("Usuário não possui permissão para esta ação!");
+            break;
+          case 500:
+            alert(
+              "O servidor encontrou uma situação com a qual não sabe lidar"
+            );
+            break;
+          default:
+            alert("Erro Desconhecido" + err.status);
+        }
       },
     });
   });
-  function arrayOfNAmes() {
-    var arrayNames = [];
-    $.ajax({
-      url: baseUrlApi + "/assisted",
-      type: "GET",
-      dataType: "JSON",
-      headers: {
-        "x-access-token": localStorage.getItem("Authorization"),
-      },
-      success: function (data) {
-        $.each(data, function (index, value) {
-          arrayNames.push({
-            id: value.id,
-            name: value.name,
-          });
-        });
-      },
-    });
-    // console.log(arrayNames)
-    return arrayNames;
-  }
 
-  autocomplete(document.getElementById("searchBar"), arrayOfNAmes());
+//   function getByEmail() {
+//     var array = [];
+//     $.ajax({
+//       url: baseUrlApi + "/user",
+//       type: "GET",
+//       dataType: "JSON",
+//       headers: {
+//         "x-access-token": localStorage.getItem("Authorization"),
+//       },
+//       success: function (data) {
+//         localStorage.removeItem("userId");
+//         $.each(data, function (index, value) {  
+//           value.email === localStorage.getItem("email")
+//             ? array.push({
+//                 id: value.id,
+//                 name: value.firstName + " " + value.lastName,
+//                 email: value.email,
+//                 userId: localStorage.setItem("userId", value.id)
+//               })
+//             : null;
+//         });
+//         console.log(JSON.stringify(array));
+//       },
+//     });
+//     // console.log(array);
+//     return array;
+//   }
+//   autocomplete(document.getElementById("searchUser"), getByEmail());
 });
