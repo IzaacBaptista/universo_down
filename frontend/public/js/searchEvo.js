@@ -2,58 +2,46 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 
 function autocomplete(inp, arr) {
   var currentFocus;
-  try {
-    if (inp != null) {
-      console.log("searchUser Load");
-    } else {
-      alert("fudeu");
+  inp.addEventListener("input", function (e) {
+    var a,
+      b,
+      val = this.value;
+    closeAllLists();
+    if (!val) {
+      return false;
     }
-    inp.addEventListener("input", function (e) {
-      var a,
-        b,
-        val = this.value;
-      closeAllLists();
+    currentFocus = -1;
+    a = document.createElement("DIV");
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
 
-      if (!val) {
-        return false;
+    for (const [key, value] of Object.entries(arr)) {
+      window.localStorage.removeItem("evolutionRecordId");
+      if (value.name.substr(0, val.length).toLowerCase() == val.toLowerCase()) {
+        b = document.createElement("DIV");
+        b.innerHTML =
+          "<strong>" + value.name.substr(0, val.length) + "</strong>";
+        b.innerHTML += value.name.substr(val.length);
+        b.innerHTML +=
+          "<strong>" + "  Data: "+ value.date + "</strong>";
+        b.innerHTML +=
+          "<input type='hidden' id='" +
+          value.evolutionRecordId +
+          "' value='" +
+          value.name +
+          "' >";
+        b.addEventListener("click", function (e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          value.evolutionRecordId = this.getElementsByTagName("input")[0].id;
+          localStorage.setItem("evolutionRecordId", value.evolutionRecordId);
+          console.log("evolutionRecordId  " + value.evolutionRecordId);
+          closeAllLists();
+        });
+        a.appendChild(b);
       }
-      currentFocus = -1;
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      this.parentNode.appendChild(a);
-
-      for (const [key, value] of Object.entries(arr)) {
-        window.localStorage.removeItem("userId");
-        if (
-          value.name.substr(0, val.length).toLowerCase() == val.toLowerCase()
-        ) {
-          b = document.createElement("DIV");
-          b.innerHTML =
-            "<strong>" + value.name.substr(0, val.length) + "</strong>";
-          b.innerHTML += value.name.substr(val.length);
-          b.innerHTML +=
-            "<input type='hidden' id='" +
-            value.id +
-            "' value='" +
-            value.name +
-            "'>";
-          b.addEventListener("click", function (e) {
-            inp.value = this.getElementsByTagName("input")[0].value;
-            inp.id = this.getElementsByTagName("input")[0].id;
-            localStorage.setItem("userId", inp.id);
-
-            closeAllLists();
-          });
-          a.appendChild(b);
-        }
-      }
-    });
-  } catch (error) {
-    alert(error);
-  }
-
-  /*keypress*/
+    }
+  });
   inp.addEventListener("keydown", function (e) {
     var x = document.getElementById(this.id + "autocomplete-list");
     if (x) x = x.getElementsByTagName("div");
@@ -95,10 +83,10 @@ function autocomplete(inp, arr) {
   });
 }
 
-function arrayOfNAmes() {
+function arrayOfNames() {
   var arrayNames = [];
   $.ajax({
-    url: baseUrlApi + "/user",
+    url: baseUrlApi + "/evolution-record/assisted",
     type: "GET",
     dataType: "JSON",
     headers: {
@@ -106,12 +94,17 @@ function arrayOfNAmes() {
     },
     success: function (data) {
       $.each(data, function (index, value) {
-        value.userRole == "profissional"
-          ? arrayNames.push({
-              id: value.id,
-              name: value.firstName + " " + value.lastName
-            })
-          : null;
+        if (
+          value.assistedId === data[index].assisted.id &&
+          value.status === "pending"
+        ) {
+          arrayNames.push({
+            evolutionRecordId: value.id,
+            assistedId: data[index].assisted.id,
+            name: data[index].assisted.name,
+            date: value.date,
+          });
+        }
       });
     },
     error: function (err) {
@@ -135,7 +128,9 @@ function arrayOfNAmes() {
       }
     },
   });
-  // console.log(arrayNames);
+  console.log(arrayNames);
+
   return arrayNames;
 }
-autocomplete(document.getElementById("searchUser"), arrayOfNAmes());
+
+autocomplete(document.getElementById("searchEvo"), arrayOfNames());

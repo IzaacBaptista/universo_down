@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/frontend/public/css/style.css" />
   </head>
   <body>
-  
     <div class="wrapper">
       <!-- Sidebar  -->
       <nav id="sidebar">
@@ -23,28 +22,38 @@
       </nav>
       <!-- Conteúdo da Página  -->
       <div id="content">
-        <div class="card col-12"> 
-            <h3 class="mt-4 ml-2">Lista de Especialidades</h3>
-            <div class="card-body">
-                <div class="container">
-                <hr size=4>
-                    <div class="row row-cols-12">
-                      <table id="specialityTable">
-                              <thead class="col-12">
-                                <tr>
-                                  <th class="col-2">Registro</th>
-                                  <th class="col-7">Especialidede</th>
-                                  <th class="col-3"></th>
-                                </tr>
-                              </thead>
-                              <tbody></tbody>
-                          </table>
-                        </div>
-                <hr size=4>
-                       
-                </div>
+        <div class="card col-12">
+          <h3 class="mt-4 ml-2" style="text-align: center">
+            Lista de Especialidades
+          </h3>
+          <div class="card-body">
+            <div class="container">
+              <hr size="4" />
+              <p>Digite o nome da Especialidade para Pesquisar</p>
+              <input
+                class="col-4"
+                id="inputSearch"
+                type="text"
+                placeholder="Digitar.."
+              />
+              <hr size="4" />
+              <div class="row row-cols-12">
+                <table id="specialityTable">
+                  <thead class="col-12">
+                    <tr>
+                      <th class="col-2">Registro</th>
+                      <th class="col-7">Especialidede</th>
+                      <th class="col-3"></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <hr size="4" />
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- JS -->
@@ -52,38 +61,51 @@
     <script src="/frontend/public/js/main.js"></script>
     <script src="/frontend/public/js/script.js"></script>
     <script>
-    var baseUrlApi = "http://localhost:3000/api/v1";
-     $(document).ready(function(){
+      var baseUrlApi = "http://localhost:3000/api/v1";
+      $(document).ready(function () {
         var data = {};
         $.ajax({
-            type: 'GET',
-            url: baseUrlApi + "/speciality",
-            headers: {
-              'x-access-token': localStorage.getItem("Authorization")
-            },
-            dataType: "JSON",
-            success: function(data){
-                var myJSON = data;
-                $.each(myJSON, function (index, value) {
-                    var id = value.id;
-                    var name = value.name;
-                    
-                    var tr_str = "<tr>" +
-                        "<td align='center' class='col-2'>" + (id) + "</td>" +
-                        "<td align='center' class='col-7'>" + name + "</td>" +
-                        "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
-                        "<button type='button' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" + "</td>" +
-                        "</tr>";
+          type: "GET",
+          url: baseUrlApi + "/speciality",
+          headers: {
+            "x-access-token": localStorage.getItem("Authorization"),
+          },
+          dataType: "JSON",
+          success: function (data) {
+            var myJSON = data;
+            $.each(myJSON, function (index, value) {
+              var id = value.id;
+              var name = value.name;
 
-                    $("#specialityTable tbody").append(tr_str);
-                });
+              var tr_str =
+                "<tr>" +
+                "<td align='center' class='col-2'>" +
+                id +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                name +
+                "</td>" +
+                "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
+                "<button type='button' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" +
+                "</td>" +
+                "</tr>";
 
-            },
-            error: function (err) {
-          alert("erro" + JSON.stringify(err));
-        },
+              $("#specialityTable tbody").append(tr_str);
+            });
+          },
+          error: function (err) {
+            alert("erro" + JSON.stringify(err));
+          },
         });
-    });  
+      });
+      $(document).ready(function () {
+        $("#inputSearch").on("keyup", function () {
+          var value = $(this).val().toLowerCase();
+          $("#specialityTable tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+          });
+        });
+      });
     </script>
   </body>
 </html>

@@ -121,13 +121,13 @@ export class ProfessionalAttendaceRoutes {
 
                         return
                     }
-                    const attendanceId = Number(request.params.id)
+                    const userId = Number(request.params.id)
                     const professionalAttendaceService = Container.get(
                         ProfessionalAttendaceService
                     )
                     const professionalAttendaces
                     = await professionalAttendaceService
-                        .findAllByAttendance(attendanceId)
+                        .findAllByAttendance(userId)
                     response.status(200).json(professionalAttendaces)
                 } catch (e) {
                     response.status(500).json({

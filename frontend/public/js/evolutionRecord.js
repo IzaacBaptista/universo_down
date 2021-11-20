@@ -1,13 +1,14 @@
 
 var baseUrlApi = "http://localhost:3000/api/v1";
-
+  
 $(document).ready(function () {
-    window.localStorage.removeItem("userId");
+    //height
+    $("#height").mask("9.99");
+ 
     window.localStorage.removeItem("assistedId");
     $("#save-btn").click(function (e) {
       e.preventDefault();
       var assistedId = localStorage.getItem("assistedId");
-      var userId = localStorage.getItem("userId");
       var date = document.getElementById("date");
       var status = $("#status :selected").val();
       var weight = document.getElementById("weight");
@@ -16,7 +17,6 @@ $(document).ready(function () {
 
       var data = {
         assistedId: assistedId,
-        userId: userId,
         date: date.value,
         status: status,
         weight: weight.value,
@@ -37,15 +37,31 @@ $(document).ready(function () {
         success: function (data) {
           if (data != "") {
             alert("Cadastro Realizado!");
+            location.reload(true);
           }
-          location.reload(true);
         },
         error: function (err) {
-          alert("Erro Desconhecido! " + JSON.stringify(err));
+          location.reload(true);
+          switch (err.status) {
+            case 304:
+              alert("Sem Alteração!!");
+              break;
+            case 400:
+              alert("Estrutura de requisição inválida!!");
+              break;
+            case 401:
+              alert("Usuário não possui permissão para esta ação!");
+              break;
+            case 500:
+              alert(
+                "O servidor encontrou uma situação com a qual não sabe lidar"
+              );
+              break;
+            default:
+              alert("Erro Desconhecido" + err.status);
+          }
         },
       });
   });
 });
   
-
- 

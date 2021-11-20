@@ -47,7 +47,36 @@ export class EvolutionRecordRoutes {
                 }
             }
         )
+        app.get(
+            `${baseUrl}/assisted`,
+            verifyJWT,
+            async (request: RequestWithUser, response: Response) => {
+                try {
+                    const context = request.context
 
+                    if (context.user.userRole !== UserRole.Profissional) {
+                        response.status(401).json({
+                            error: 'Usuário não possui permissão para'
+                            + ' esta ação. { (Função: Profissional) }'
+                        })
+
+                        return
+                    }
+
+                    const evolutionRecordService = Container
+                        .get(EvolutionRecordService)
+                    const evolutionRecords = await evolutionRecordService
+                        .findAllToSearchEvolution(context)
+
+                    response.status(200).json(evolutionRecords)
+                } catch (e) {
+                    response.status(500).json({
+                        error: 'O servidor encontrou uma situação com a qual'
+                        + ` não sabe lidar. {${e}}`
+                    })
+                }
+            }
+        )
         app.get(
             `${baseUrl}/:id`,
             verifyJWT,
