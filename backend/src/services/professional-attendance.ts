@@ -83,9 +83,9 @@ export default class ProfessionalAttendanceService {
     ): Promise<ProfessionalAttendance[]> {
         return this.repository.findAllAttendanceByProfessional(context, userId)
     }
-    async findAllByAttendance(attendanceId: number)
+    async findAllByAttendance(userId: number)
     : Promise<ProfessionalAttendance[]> {
-        return this.repository.findAllByAttendance(attendanceId)
+        return this.repository.findAllByAttendance(userId)
     }
 
 }

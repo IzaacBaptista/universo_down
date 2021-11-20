@@ -21,18 +21,19 @@ export default class ProfessionalAttendanceRepository
 
     async findAll(
         context: Context,
-        evolutionRecordId
+        evolutionRecordId: number
     ): Promise<ProfessionalAttendance[]> {
         return this.find({
             where: {
                 organizationId: context.organization.id,
                 evolutionRecordId
-            }
+            },
+            relations: ['evolutionRecord', 'evolutionRecord.assisted' , 'user']
         })
     }
 
     async findAllByAttendance(
-        id: number,
+        userId: number,
         db?: EntityManager
     ): Promise<ProfessionalAttendance[] | undefined> {
         const repository = db
@@ -40,8 +41,8 @@ export default class ProfessionalAttendanceRepository
             : this
 
         return repository.find({
-            where: { id },
-            relations: ['evolutionRecord', 'needSpecialities', 'user']
+            where: { userId },
+            relations: ['evolutionRecord', 'evolutionRecord.assisted']
         })
     }
 
@@ -53,7 +54,8 @@ export default class ProfessionalAttendanceRepository
             where: {
                 organizationId: context.organization.id,
                 userId
-            }
+            },
+            relations: ['evolutionRecord', 'evolutionRecord.assisted']
         })
     }
 
