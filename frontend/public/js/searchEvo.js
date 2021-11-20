@@ -24,16 +24,18 @@ function autocomplete(inp, arr) {
           "<strong>" + value.name.substr(0, val.length) + "</strong>";
         b.innerHTML += value.name.substr(val.length);
         b.innerHTML +=
+          "<strong>" + "  Data: "+ value.date + "</strong>";
+        b.innerHTML +=
           "<input type='hidden' id='" +
           value.evolutionRecordId +
           "' value='" +
           value.name +
-          "'>";
+          "' >";
         b.addEventListener("click", function (e) {
-          inp.value = this.getElementsByTagName("input")[0].value
+          inp.value = this.getElementsByTagName("input")[0].value;
           value.evolutionRecordId = this.getElementsByTagName("input")[0].id;
           localStorage.setItem("evolutionRecordId", value.evolutionRecordId);
-          console.log("evoID  " + value.evolutionRecordId);
+          console.log("evolutionRecordId  " + value.evolutionRecordId);
           closeAllLists();
         });
         a.appendChild(b);
@@ -100,6 +102,7 @@ function arrayOfNames() {
             evolutionRecordId: value.id,
             assistedId: data[index].assisted.id,
             name: data[index].assisted.name,
+            date: value.date,
           });
         }
       });
