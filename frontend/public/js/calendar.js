@@ -1,5 +1,3 @@
-import { autocomplete } from "./searchbar.js";
-
 var baseUrlApi = "http://localhost:3000/api/v1";
 
 $(document).ready(function () {
