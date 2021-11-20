@@ -1,13 +1,14 @@
 
 var baseUrlApi = "http://localhost:3000/api/v1";
-
+  
 $(document).ready(function () {
-    window.localStorage.removeItem("userId");
+    //height
+    $("#height").mask("9.99");
+ 
     window.localStorage.removeItem("assistedId");
     $("#save-btn").click(function (e) {
       e.preventDefault();
       var assistedId = localStorage.getItem("assistedId");
-      var userId = localStorage.getItem("userId");
       var date = document.getElementById("date");
       var status = $("#status :selected").val();
       var weight = document.getElementById("weight");
@@ -16,7 +17,6 @@ $(document).ready(function () {
 
       var data = {
         assistedId: assistedId,
-        userId: userId,
         date: date.value,
         status: status,
         weight: weight.value,
@@ -60,5 +60,3 @@ $(document).ready(function () {
   });
 });
   
-
- 

@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Registro da Evoluçao </title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="/frontend/public/css/bootstrap.min.css" />
@@ -18,8 +19,6 @@
 </head>
 
   <body>
-
-
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
@@ -29,46 +28,41 @@
     <!-- Conteúdo da Página  -->
     <div id="content">
       <div class="card col-12">
-        <h3 class="mt-4 ml-2 titulo"> Registro de Evolução</h3>
+        <h3 class="mt-4 ml-2 titulo"> Registro da Evolução</h3>
         <hr size=4>
         <div class="card-body">
           <form class="form-group" id="form">
             <div class="container">
               <div class="row">
                 <div class="col-12">
-                    <!-- SearchBar  Profissional-->
-                    <h6 class="col-12">Nome do(a) Profissional </h6>
-                    <div id="searchbar-user"  name="userId"></div>
-                </div>
-                <div class="col-12">
                     <!-- SearchBar  Paciente-->
                     <h6 class="col-12">Nome do(a) Paciente </h6>
                     <div id="searchbar-assisted"  name="assistedId"></div>
                 </div>
                 <div class="col-6">
-                  <label for="dataEvolucao">Data </label>
+                  <label for="dataEvolucao">Data da Avaliação</label>
                   <input type="date" class="form-control" name="date" id="date"
                     placeholder="Nome da Usuario">
                 </div>
                 <div class="col-4">
-                      <label for="status">Status</label>
+                      <label for="status">Situação</label>
                         <select class="form-control" name="status" id="status" required>Status:
                             <option value="" select>- Seleceio uma Opção -</option>
-                            <option value="done">Feito</option>
+                            <option value="done">Realizado</option>
                             <option value="pending">Pendente</option>
                             <option value="refused">Recusado</option>
                         </select>
                     </div>
                 <div class="col-6">
                   <label for="peso">Peso</label>
-                  <input type="number" class="form-control" name="weight" id="weight" placeholder="Peso do Paciente">
+                  <input type="number" class="form-control" name="weight" id="weight" placeholder="Peso do Paciente" maxlength=6>
                 </div>
                 <div class="col-6">
                   <label for="altura">Altura</label>
-                  <input type="number" class="form-control" name="height" id="height" placeholder="Altura do Paciente">
+                  <input type="number" class="form-control" name="height" id="height" placeholder="Altura do Paciente" maxlength=4>
                 </div>
                 <div class="col-12">
-                  <label for="altura">Descrição da Evolução</label>
+                  <label for="altura">Parecer do Atendimento</label>
                   <textarea class="form-control" name="report" id="report" style="resize: none"></textarea>
                 </div>
               </div>
@@ -87,6 +81,8 @@
   <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
   <script src="/frontend/public/js/main.js"></script>
   <script src="/frontend/public/js/script.js"></script>
+  <script src="/frontend/public/js/dist/jquery.mask.js"></script>
+  <script src="/frontend/public/js/dist/jquery.mask.min.js"></script>
   <script type="module" src="/frontend/public/js/evolutionRecord.js"></script>
 </body>
 
