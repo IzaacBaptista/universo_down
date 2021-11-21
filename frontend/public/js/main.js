@@ -1,5 +1,4 @@
-
-  /* Abrir e Fechar NavBar */
+/* Abrir e Fechar NavBar */
 $(function () {
   "use strict";
 
@@ -37,3 +36,4 @@ $(function () {
     }
   });
 });
+
