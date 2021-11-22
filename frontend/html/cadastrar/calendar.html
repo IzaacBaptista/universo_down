@@ -28,19 +28,19 @@
             <div class="card col-12"> 
             <h3 class="mt-4 ml-2 titulo"> Agendamento de Consultas</h3>
             <div class="card-body">
-            <form class="form-group">
+            <form class="form-group" id="form">
             <hr size=4 >
                 <div class="container"> 
                     <div class="row">
                         <div class="col-6">
                             <!-- SearchBar  -->
                             <h6 class="col-12">Nome do(a) Especialista </h6>
-                            <div id="searchbar-user" name="userId"></div>
+                            <div id="searchbar-user" name="userId" ></div>
                         </div>
                         <div class="col-6">
-                            <label for="nome" class="col-12  mb-1">Dia da Semana</label>
-                            <select name="dayOfWeek" id="dayOfWeek" required>
-                            <option value="0" selected>- Selecione um Dia -</option>
+                            <label for="dayOfWeek" class="col-12  mb-1">Dia da Semana</label>
+                            <select name="dayOfWeek" id="dayOfWeek" >
+                            <option value="" selected>- Selecione um Dia -</option>
                             <option value="monday">Segunda-Feira</option>
                             <option value="tuesday">Teça-Feira</option>
                             <option value="wednesday">Quarta-Feira</option>
@@ -57,21 +57,21 @@
                 <div class="col-6">
                         <label for="appt" >Início:</label>
                         <input type="time" id="startHour" name="startHour"
-                            min="08:00" max="20:00" value="08:00" required>
+                            min="08:00" max="20:00" value="08:00">
                             <span class="validity"></span>
                         <div style="padding-left:40px"><small>8am até 20pm</small></div>
                     </div>
                     <div class="col-6">
                     <label for="appt">Término:</label>
                         <input type="time" id="endHour" name="endHour"
-                            min="08:00" max="20:00" value="10:30" required>
+                            min="08:00" max="20:00" value="">
                             <span class="validity"></span>
                         <div style="padding-left:45px"><small>8am até 20pm</small><span class="validity"></span></div>
                     </div>
             </div>
             <hr size=4>
                 <div class="row mt-4">
-                    <button type="button" name="save-btn" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
+                    <button type="submit" name="save-btn" form="form" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
                     <button type="reset" class="btn btn-danger col-3 offset-2">Cancelar</button>
                 </div>
             </form>
@@ -82,8 +82,6 @@
     <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
     <script src="/frontend/public/js/script.js"></script>
     <script type="module" src="/frontend/public/js/calendar.js"></script>
-    <script>
-     
-    </script>
+
   </body>
 </html>
