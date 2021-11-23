@@ -38,15 +38,14 @@
               />
               <hr size="4" />
               <div class="row row-cols-12">
-                <table id="specialityTable">
+                <table id="specialityTable" class="display">
                   <thead class="col-12">
                     <tr>
                       <th class="col-2">Registro</th>
-                      <th class="col-7">Especialidede</th>
-                      <th class="col-3"></th>
+                      <th class="col-7">Especialidade</th>
+                      <th class="col-7">Opções</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
                 </table>
               </div>
               <hr size="4" />
@@ -55,55 +54,79 @@
         </div>
       </div>
     </div>
-
-    <!-- JS -->
+ <!-- JS -->
     <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
-    <script src="/frontend/public/js/main.js"></script>
     <script src="/frontend/public/js/script.js"></script>
+    <script type="Module" src="/frontend/public/js/fns/erroHandler.js"></script>
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
-      var baseUrlApi = "http://localhost:3000/api/v1";
-      $(document).ready(function () {
-        var data = {};
-        $.ajax({
-          type: "GET",
-          url: baseUrlApi + "/speciality",
-          headers: {
-            "x-access-token": localStorage.getItem("Authorization"),
-          },
-          dataType: "JSON",
-          success: function (data) {
-            var myJSON = data;
-            $.each(myJSON, function (index, value) {
-              var id = value.id;
-              var name = value.name;
 
-              var tr_str =
-                "<tr>" +
-                "<td align='center' class='col-2'>" +
-                id +
-                "</td>" +
-                "<td align='center' class='col-7'>" +
-                name +
-                "</td>" +
-                "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
-                "<button type='button' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" +
-                "</td>" +
-                "</tr>";
-
-              $("#specialityTable tbody").append(tr_str);
-            });
-          },
-          error: function (err) {
-            alert("erro" + JSON.stringify(err));
-          },
-        });
-      });
-      $(document).ready(function () {
-        $("#inputSearch").on("keyup", function () {
-          var value = $(this).val().toLowerCase();
-          $("#specialityTable tr").filter(function () {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+    var baseUrlApi = "http://localhost:3000/api/v1";
+    $(document).ready(function () {
+      var data = {};
+      $.ajax({
+        type: "GET",
+        url: baseUrlApi + "/speciality",
+        headers: {
+          "x-access-token": localStorage.getItem("Authorization"),
+        },
+        dataType: "JSON",
+        success: function (data) {
+          var table = $("#specialityTable").DataTable({
+            columnDefs: [
+              {
+                targets: 2,
+                render: function (data, type, row, meta) {
+                  return (
+                    '<input type="button" class="btn btn-primary " id=n-"' +
+                    meta.row +
+                    '" value="Editar"/><input type="button" class="btn btn-danger" id=btnExcluir"' +
+                    meta.row +
+                    '" value="Deletar"/>'
+                  );
+                },
+              },
+            ],
+            data: data,
+            columns: [{ data: "id" }, { data: "name" }],
           });
+        },
+        error: function (err) {
+          alert("erro" + JSON.stringify(err));
+        },
+      });
+      $("#specialityTable").on("click", ".btn-primary", function () {
+        var id = $(this).attr("id").match(/\d+/)[0];
+        var data = $("#specialityTable").DataTable().row(id).data();
+        alert("ID " + data.id)
+      });
+   
+        $("#specialityTable").on("click", ".btn-danger", function () {
+        var id = $(this).attr("id").match(/\d+/)[0];
+        var data = $("#specialityTable").DataTable().row(id).data();
+          console.log("DATA ID " + data.id)
+          var id2 = data.id;
+          
+          var confirmalert = confirm("Você tem certeza?");
+          if (confirmalert === true) {
+            $.ajax({
+              headers: {
+                "x-access-token": localStorage.getItem("Authorization"),
+              },
+              url: "http://localhost:3000/api/v1/speciality/" + id2,
+              type: "DELETE",
+              success: function (response) {
+                if (response) {
+                  alert("Especialidade Removida");
+                  location.reload(true);
+                }
+              },
+              error: function (err) {
+               alert(err.status);
+              },
+            });
+          }
         });
       });
     </script>

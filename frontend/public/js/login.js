@@ -1,4 +1,5 @@
 var baseUrlApi = "http://localhost:3000/api/v1";
+import { erroHandler } from '../js/fns/erroHandler.js'
 
 $(document).ready(function () {
   $("#login").click(function () {
@@ -39,32 +40,66 @@ $(document).ready(function () {
         data: JSON.stringify(data),
         success: function (data) {
           const token = data.token;
-          window.location.href = "/frontend/index.html";
-          window.localStorage.setItem("email", email)
+          window.localStorage.clear();
+          window.localStorage.setItem("email", email);
           window.localStorage.setItem("Authorization", token);
+          window.location.href = "/frontend/index.html";
         },
         error: function (err) {
-          location.reload(true);
-          switch (err.status) {
-            case 304:
-              alert("Sem Alteração!!");
-              break;
-            case 400:
-              alert("Estrutura de requisição inválida!!");
-              break;
-            case 401:
-              alert("Usuário não possui permissão para esta ação!");
-              break;
-            case 500:
-              alert(
-                "O servidor encontrou uma situação com a qual não sabe lidar"
-              );
-              break;
-            default:
-              alert("Erro Desconhecido" + err.status);
-          }
+          erroHandler(err.status);
+
         },
       });
     }
   });
 });
+$("#selectSpeciality").on('change', function(){
+        var data = {};
+        var specialityId = localStorage.getItem("selectSpeciality");
+        console.log(specialityId);
+        $.ajax({
+          type: "GET",
+          url: baseUrlApi + "/specialities/" + specialityId,
+          headers: {
+            "x-access-token": localStorage.getItem("Authorization"),
+          },
+          dataType: "JSON",
+          success: function (data) {
+            var data = data;
+            console.log(data)
+            $.each(data, function (index, value) {
+              var id = data.specialityId;
+
+              var specialityId = data.speciality.id;
+              var specialitiesName = data.user.firstName;
+              var specialityName = data.speciality.name;
+
+              var tr_str =
+                "<tr id='" +
+                id +
+                "'>" +
+                "<td align='center' class='col-2' id='" +
+                id +
+                "'>" +
+                id + 
+                + specialityId +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialitiesName +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialityName +
+                "</td>" +
+                "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
+                "<button type='button' id='btnExcluir' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" +
+                "</td>" +
+                "</tr>";
+
+              $("#specialityTable tbody").append(tr_str);
+            });
+          },
+          error: function (err) {
+            alert("erro" + JSON.stringify(err));
+          },
+        });
+      });

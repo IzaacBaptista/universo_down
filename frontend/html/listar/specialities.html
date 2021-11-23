@@ -35,9 +35,23 @@
                           <option value="0">- Selecione uma Especialidade -</option>
                       </select>
                 </div>
+
+              <hr size="4" />
+              <div class="row row-cols-12">
+                <table id="specialityTable">
+                  <thead class="col-12">
+                    <tr>
+                      <th class="col-1">Registro</th>
+                      <th class="col-5">Especialista</th>
+                      <th class="col-3">Especialidade</th>
+                      <th class="col-3"></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <hr size="4" />
                     
-                    
-                <hr size=4>
                        
                 </div>
             </div>
@@ -48,11 +62,13 @@
     <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
     <script src="/frontend/public/js/main.js"></script>
     <script src="/frontend/public/js/script.js"></script>
+    <script type="Module" src="/frontend/public/js/fns/erroHandler.js"></script>
     <script>
     var baseUrlApi = "http://localhost:3000/api/v1";
     $(document).ready(function(){
+      localStorage.removeItem("selectSpeciality");
         $.ajax({
-        url:  baseUrlApi + "/speciality/",
+        url:  baseUrlApi + "/speciality",
         type: "GET",
         dataType: "JSON",
         headers: {
@@ -62,16 +78,69 @@
             $("#selectSpeciality").empty();
             var myJSON = data;
             $.each(myJSON, function (index, value) {
-            $("#selectSpeciality").append("<option value='"+value.id+"'>"+ value.id + " - " + value.name+"</option>");
+            $("#selectSpeciality").append("<option value='"+value.id+"'>"+ value.id + " - " + value.name +"</option>");
             })
             
             $("#selectSpeciality").on('change', function(){
-            var selectedCountry = $(this).children("option:selected").val();
-            console.log("selected item" + selectedCountry);
+              var selectOption = $(this).children("option:selected").val();
+              console.log("selected item" + selectOption);
+              localStorage.setItem("selectSpeciality", selectOption)
             });
-        },
+          },
         });
     });
+    setTimeout(loadTable, 1000);
+    function loadTable(){
+      $("#selectSpeciality").on('change',  function(){
+        var data = {};
+        var specialityId = localStorage.getItem("selectSpeciality");
+        console.log(specialityId);
+        $.ajax({
+          type: "GET",
+          url: baseUrlApi + "/specialities/" + specialityId,
+          headers: {
+            "x-access-token": localStorage.getItem("Authorization"),
+          },
+          dataType: "JSON",
+          success: function (data) {
+            var data = data;
+            console.log(data)
+            $.each(data, function (index, value) {
+              var id = data.specialityId;
+              var specialityId = data.speciality.id;
+              var specialitiesName = data.user.firstName;
+              var specialityName = data.speciality.name;
+
+              var tr_str =
+                "<tr id='" +
+                id +
+                "'>" +
+                "<td align='center' class='col-2' id='" +
+                id +
+                "'>" +
+                id + 
+                + specialityId +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialitiesName +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialityName +
+                "</td>" +
+                "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
+                "<button type='button' id='btnExcluir' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" +
+                "</td>" +
+                "</tr>";
+
+              $("#specialityTable tbody").append(tr_str);
+            });
+          },
+          error: function (err) {
+            alert("erro" + JSON.stringify(err));
+          },
+        });
+      });
+    }
     </script>
   </body>
 </html>
