@@ -6,8 +6,8 @@ $(document).ready(function () {
   $("#form").submit(function (e) {
     e.preventDefault();
     var name = document.getElementById("name");
-    
-    var data = { 
+
+    var data = {
       name: name.value
     };
 
@@ -42,3 +42,4 @@ $(document).ready(function () {
     }
   });
 });
+
