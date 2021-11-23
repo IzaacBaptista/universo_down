@@ -53,3 +53,53 @@ $(document).ready(function () {
     }
   });
 });
+$("#selectSpeciality").on('change', function(){
+        var data = {};
+        var specialityId = localStorage.getItem("selectSpeciality");
+        console.log(specialityId);
+        $.ajax({
+          type: "GET",
+          url: baseUrlApi + "/specialities/" + specialityId,
+          headers: {
+            "x-access-token": localStorage.getItem("Authorization"),
+          },
+          dataType: "JSON",
+          success: function (data) {
+            var data = data;
+            console.log(data)
+            $.each(data, function (index, value) {
+              var id = data.specialityId;
+
+              var specialityId = data.speciality.id;
+              var specialitiesName = data.user.firstName;
+              var specialityName = data.speciality.name;
+
+              var tr_str =
+                "<tr id='" +
+                id +
+                "'>" +
+                "<td align='center' class='col-2' id='" +
+                id +
+                "'>" +
+                id + 
+                + specialityId +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialitiesName +
+                "</td>" +
+                "<td align='center' class='col-7'>" +
+                specialityName +
+                "</td>" +
+                "<td class='col-3 '><button type='submit' class='btn btn-success col-3 offset-1'> <i class='bi bi-pencil-square'></i></button>" +
+                "<button type='button' id='btnExcluir' class='btn btn-danger col-3 offset-1'><i class='bi bi-trash'></i></button>" +
+                "</td>" +
+                "</tr>";
+
+              $("#specialityTable tbody").append(tr_str);
+            });
+          },
+          error: function (err) {
+            alert("erro" + JSON.stringify(err));
+          },
+        });
+      });

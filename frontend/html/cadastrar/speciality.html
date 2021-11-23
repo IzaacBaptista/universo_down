@@ -28,30 +28,30 @@
             <h3 class="mt-4 ml-2 titulo"1>Cadastro de Especialidade</h3>
             <div class="card-body">
             <hr size=4>
-              <form class="form-group" id="form">
+              <form class="form-group" id="form" name="form">
                 <div class="container"> 
                   <div class="row">
                     <div class="col-12">
                       <h6 class="col-12">Especialidade<h6>
-                        <input type="text" class="form-control mb-4" name="name" id="name" placeholder="Nome da Especialidade" required>
+                        <input type="text" class="form-control mb-4" name="name" id="name" placeholder="Nome da Especialidade">
                     </div>
                   </div>
                 </div>
-                <hr size=4>
+                  <hr size=4>
                   <div class="row mt-4">
-                    <button type="button" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
+                    <button type="submit" form="form" id="save-btn" class="btn btn-success col-3 offset-2">Salvar</button>
                     <button type="reset" name="cancel-btn" class="btn btn-danger col-3 offset-2">Cancelar</button>
                   </div>
               </form>
             </div>
+          </div>
         </div>
       </div>
-    </div>
 
     <!-- JS -->
     <script src="/frontend/public/js/dist/jquery-3.6.0.min.js"></script>
     <script src="/frontend/public/js/script.js"></script>
-    <script src="/frontend/public/js/specality.js"></script>
+    <script type="Module" src="/frontend/public/js/specality.js"></script>
     
   </body>
 </html>

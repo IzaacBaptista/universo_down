@@ -6,6 +6,9 @@ export function ajaxRequest(url, data, callback, type, method) {
       data = {};
     }
     return jQuery.ajax({
+      headers: {
+        "x-access-token": localStorage.getItem("Authorization"),
+      },
       type: method,
       url: url,
       data: data,

@@ -117,6 +117,8 @@
     <script type="Module">
     import { erroHandler } from '../../public/js/fns/erroHandler.js';
       $(document).ready(function () {
+        var title = Request.Form['name'];
+        console.log(title);
         // Delete
         $("#specialityTable").on("click", "#btnExcluir", function () {
           var id = jQuery(this).closest("tr").attr("id");
