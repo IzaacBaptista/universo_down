@@ -1,4 +1,6 @@
 var baseUrlApi = "http://localhost:3000/api/v1";
+import { erroHandler } from "../js/fns/erroHandler.js";
+import { checkProperties } from "../js/fns/checkForm.js";
 
 function autocomplete(inp, arr) {
   var currentFocus;
@@ -23,8 +25,8 @@ function autocomplete(inp, arr) {
         b.innerHTML =
           "<strong>" + value.name.substr(0, val.length) + "</strong>";
         b.innerHTML += value.name.substr(val.length);
-        b.innerHTML +=
-          "<strong>" + "  Data: "+ value.date + "</strong>";
+        // b.innerHTML += 
+          // "<strong>" + "  Data: "+ value.date + "</strong>";
         b.innerHTML +=
           "<input type='hidden' id='" +
           value.evolutionRecordId +
@@ -35,7 +37,7 @@ function autocomplete(inp, arr) {
           inp.value = this.getElementsByTagName("input")[0].value;
           value.evolutionRecordId = this.getElementsByTagName("input")[0].id;
           localStorage.setItem("evolutionRecordId", value.evolutionRecordId);
-          console.log("evolutionRecordId  " + value.evolutionRecordId);
+          // console.log("evolutionRecordId  " + value.evolutionRecordId);
           closeAllLists();
         });
         a.appendChild(b);
@@ -108,27 +110,10 @@ function arrayOfNames() {
       });
     },
     error: function (err) {
-      switch (err.status) {
-        case 304:
-          alert("Sem Alteração!!");
-          break;
-        case 400:
-          alert("Estrutura de requisição inválida!!");
-          break;
-        case 401:
-          alert("Usuário não possui permissão para esta ação!");
-          break;
-        case 500:
-          alert(
-            "O servidor encontrou uma situação com a qual não sabe lidar"
-          );
-          break;
-        default:
-          alert("Erro Desconhecido" + err.status);
-      }
+      erroHandler(err.status);
     },
   });
-  console.log(arrayNames);
+  // console.log(arrayNames);
 
   return arrayNames;
 }
