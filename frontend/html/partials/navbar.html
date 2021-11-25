@@ -4,9 +4,7 @@
   <!-- Meta Tags -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet"/>
+
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
   
@@ -32,7 +30,7 @@
         <div class="nav-menu side-menu">
           <ul>
             <li>
-              <a href="index.html" class="d-flex align-items-center">
+              <a href="#" onclick="(window.location='/frontend/index.html')" class="d-flex align-items-center">
                 <span class="wrap-icon fa fa-home ml-auto p-2"></span>
                 <span class="menu-text">Pagina Inicial</span></a
               > <!-- CLOSE -->
@@ -40,27 +38,77 @@
             <li>
               <a href="" class="d-flex align-items-center">
                 <span class="wrap-icon fa fa-heartbeat ml-auto p-2"></span>
-                <span class="menu-text">Usuário</span>
+                <span class="menu-text">Assistente Social</span>
               </a>
               <ul class="sub-menu">
                 <li>
                   <a
                     href="#"
-                    onclick="(window.location='/frontend/html/usuarios/user.html')"
+                    onclick="(window.location='/frontend/html/cadastrar/assisted.html')"
                     class="d-flex align-items-sm-center sub"
                   > <!-- CLOSE -->
                     <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Cadastro</span>
+                    <span class="menu-text p-4">Paciente</span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#"
-                    onclick="(window.location='/frontend/html/usuarios/login.html')"
+                    onclick="(window.location='/frontend/html/cadastrar/related.html')"
                     class="d-flex align-items-sm-center sub"
                   > <!-- CLOSE -->
                     <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Login</span>
+                    <span class="menu-text p-4">Familiar</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="(window.location='/frontend/html/cadastrar/schoolRequest.html')"
+                    class="d-flex align-items-sm-center sub"
+                  > <!-- CLOSE -->
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Solicitação Escolar</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="(window.location='/frontend/html/cadastrar/transportRequest.html')"
+                    class="d-flex align-items-sm-center sub"
+                  > <!-- CLOSE -->
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Solicitação de Transporte</span>
+                  </a>
+                </li>
+                  <li>
+                  <a
+                    href="#"
+                    onclick="(window.location='/frontend/html/cadastrar/evolutionRecord.html')"
+                    class="d-flex align-items-sm-center sub"
+                  > <!-- CLOSE -->
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Registro de Evolução</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="(window.location='/frontend/html/cadastrar/needSpeciality.html')"
+                    class="d-flex align-items-sm-center sub"
+                  > <!-- CLOSE -->
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Registro de Necessidades</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="(window.location='/frontend/html/cadastrar/calendar.html')"
+                    class="d-flex align-items-sm-center sub"
+                  > <!-- CLOSE -->
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Agendamento de Consulta</span>
                   </a>
                 </li>
               </ul>
@@ -68,35 +116,26 @@
             <li>
               <a href="" class="d-flex align-items-center">
                 <span class="wrap-icon bi bi-building ml-auto p-2"></span>
-                <span class="menu-text">Organização</span>
+                <span class="menu-text">Profissional</span>
               </a>
               <ul class="sub-menu">
-                <li>
+               <li>
                   <a
                     href="#"
-                    onclick="(window.location='/frontend/html/cadastrar/organization.html')"
+                    onclick="(window.location='/frontend/html/cadastrar/professionalAttendance.html')"
                     class="d-flex align-items-sm-center sub"
                   > <!-- CLOSE -->
-                    <span class="wrap-icon bi bi-building ml-auto p-2"></span>
-                    <span class="menu-text p-4">Cadastro de Organização</span>
+                    <span class="wrap-icon fa fa-home p-4"></span>
+                    <span class="menu-text p-4">Atendimento Profissional</span>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="#"
-                    onclick="(window.location='/frontend/html/listar/organization.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon bi bi-building ml-auto p-2"></span>
-                    <span class="menu-text p-4">Lista Organização</span>
-                  </a>
-                </li>
+                
               </ul>
             </li>
             <li>
               <a href="" class="d-flex align-items-center">
                 <span class="wrap-icon fa fa-heartbeat ml-auto p-2"></span>
-                <span class="menu-text">Especialidade</span>
+                <span class="menu-text">Secretária</span>
               </a>
               <ul class="sub-menu">
                 <li>
@@ -108,30 +147,6 @@
                     <span class="wrap-icon fa fa-home p-4"></span>
                     <span class="menu-text p-4">Cadastro de Especialidade</span>
                   </a>
-                  <a
-                    href="#"
-                    onclick="(window.location='/frontend/html/cadastrar/assisted.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Cadastro de Atendido</span>
-                  </a>
-                  <a
-                    href="#"
-                    onclick="(window.location='/frontend/html/cadastrar/professionalAttendance.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Atendimento Profissional</span>
-                  </a>
-                  <a
-                    href="#"
-                    onclick="(window.location='/frontend/html/cadastrar/needSpeciality.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">need_speciality</span>
-                  </a>
                 </li>
                 <li>
                   <a
@@ -140,77 +155,7 @@
                     class="d-flex align-items-sm-center sub"
                   > <!-- CLOSE -->
                     <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Cadastro de Especialista</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="" class="d-flex align-items-center">
-                <span class="wrap-icon fa fa-heartbeat ml-auto p-2"></span>
-                <span class="menu-text">Paciente</span>
-              </a>
-              <ul class="sub-menu">
-                <li>
-                  <a
-                  href="#"
-                  onclick="(window.location='/frontend/html/cadastrar/related.html')"
-                  class="d-flex align-items-sm-center sub"
-                > <!-- CLOSE -->
-                  <span class="wrap-icon fa fa-home p-4"></span>
-                  <span class="menu-text p-4">Cadastro de Familiar</span>
-                </a>
-                <a
-                  href="#"
-                  onclick="(window.location='/frontend/html/cadastrar/schoolRequest.html')"
-                  class="d-flex align-items-sm-center sub"
-                > <!-- CLOSE -->
-                  <span class="wrap-icon fa fa-home p-4"></span>
-                  <span class="menu-text p-4">Solicitação Escolar</span>
-                </a>
-                <a
-                  href="#"
-                  onclick="(window.location='/frontend/html/cadastrar/transportRequest.html')"
-                  class="d-flex align-items-sm-center sub"
-                > <!-- CLOSE -->
-                  <span class="wrap-icon fa fa-home p-4"></span>
-                  <span class="menu-text p-4">Solicitação de Transporte</span>
-                </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="" class="d-flex align-items-center">
-                <span class="wrap-icon fa fa-heartbeat ml-auto p-2"></span>
-                <span class="menu-text">Evolução</span>
-              </a>
-              <ul class="sub-menu">
-                <li>
-                  <a
-                    href="#"
-                    onclick="(window.location='/frontend/html/cadastrar/evolutionRecord.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Registro da Evolução</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="" class="d-flex align-items-center">
-                <span class="wrap-icon fa fa-heartbeat ml-auto p-2"></span>
-                <span class="menu-text">Configurações</span>
-              </a>
-              <ul class="sub-menu">
-                <li>
-                  <a
-                    href="#"
-                    onclick="(window.location='config.html')"
-                    class="d-flex align-items-sm-center sub"
-                  > <!-- CLOSE -->
-                    <span class="wrap-icon fa fa-home p-4"></span>
-                    <span class="menu-text p-4">Configurações</span>
+                    <span class="menu-text p-4">Especialista/Especialidade</span>
                   </a>
                 </li>
               </ul>
