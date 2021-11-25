@@ -3,26 +3,20 @@ import { erroHandler } from "../js/fns/erroHandler.js";
 import { checkProperties } from "../js/fns/checkForm.js";
 
 $(document).ready(function () {
-  window.localStorage.removeItem("userId");
+  window.localStorage.removeItem("evolutionRecordId");
     $("#form").submit(function(e) {
       e.preventDefault();
-      var userId = localStorage.getItem("userId");
+      var evolutionRecordId = localStorage.getItem("evolutionRecordId");
       var dayOfWeek = $("#dayOfWeek :selected").val();
       var startHour = document.getElementById("startHour");
       var endHour = document.getElementById("endHour");
 
-      if (startHour.value > endHour.value
-        && (startHour.value >= 8 && startHour.value <= 20)
-        && (endHour.value >= 8 && endHour.value <= 20)) {
-        alert("Horario não Permitido!!");
-      } else {
         var data = {
           dayOfWeek: dayOfWeek,
           startHour: startHour.value,
           endHour: endHour.value,
-          userId: userId,
+          evolutionRecordId: evolutionRecordId,
         };
-      }
       if (checkProperties(data) === false) {
         try {
           $.ajax({

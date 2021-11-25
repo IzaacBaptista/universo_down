@@ -3,11 +3,6 @@ var baseUrlApi = "http://localhost:3000/api/v1";
 function autocomplete(inp, arr) {
   var currentFocus;
   try {
-    if (inp != null) {
-      console.log("searchUser Load");
-    } else {
-      alert("fudeu");
-    }
     inp.addEventListener("input", function (e) {
       var a,
         b,

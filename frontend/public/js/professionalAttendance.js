@@ -12,18 +12,12 @@ $(document).ready(function () {
     var result = document.getElementById("result");
     var quantify = document.getElementById("quantify");
 
-    var dateNow = new Date().toLocaleDateString();
-
-    if (date.value >= dateNow) {
       var data = {
         evolutionRecordId: evolutionRecordId,
         date: date.value,
         result: result.value,
         quantify: quantify.value,
       };
-    } else {
-      alert("Data Inválida");
-    }
 
     if (checkProperties(data) === false) {
       try {
@@ -45,7 +39,6 @@ $(document).ready(function () {
           },
           error: function (err) {
             erroHandler(err.status);
-            location.reload(true);
           },
         });
       } catch (error) {

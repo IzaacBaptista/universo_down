@@ -27,7 +27,7 @@
         <div class="card col-12">
           <h3 class="mt-4 ml-2 titulo">Cadastro do(a) Paciente</h3>
           <div class="card-body">
-            <form class="form-group">
+            <form class="form-group" id="form">
               <div class="container">
                 <div class="row">
                   <hr size="4" />
@@ -373,7 +373,7 @@
               </div>
             <hr />
             <div class="row mt-4">
-              <button type="button" id="save-btn" class="btn btn-success col-3 offset-2">
+              <button type="submit" form="form" id="save-btn" class="btn btn-success col-3 offset-2">
                 Salvar
               </button>
               <button type="reset" class="btn btn-danger col-3 offset-2">

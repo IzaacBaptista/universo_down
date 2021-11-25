@@ -276,7 +276,6 @@ input.form-control {
 }
 
 .btn-success:hover {
-    background-color: #FFF !important;
     color: black !important;
     border: 0 solid #FFF ;
 }
